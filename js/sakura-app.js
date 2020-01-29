@@ -252,7 +252,7 @@ function code_highlight_style () {
       'autocapitalize': 'off',
       'spellcheck': 'false',
       'contenteditable': 'false',
-      'design': 'by hojun'
+      'design': 'by wjun'
     }
     var ele_name = $('pre:eq(' + i + ')')[0].children[0].className
     var lang = ele_name.substr(0, ele_name.indexOf(' ')).replace('language-', '')
@@ -1609,9 +1609,9 @@ $(function () {
   $(document).on('click', '.specsZan', function () {
     $(this).postLike()
   })
-  console.log('%c Mashiro %c', 'background:#24272A; color:#ffffff', '', 'https://2heng.xin/')
-  console.log('%c hojun %c', 'background:#24272A; color:#ffffff', '', 'https://www.hojun.cn/')
-  console.log('%c Github %c', 'background:#24272A; color:#ffffff', '', 'https://github.com/honjun/hexo-theme-sakura')
+  console.log('%c Paper %c', 'background:#24272A; color:#ffffff', '', 'https://dashingwj.github.io/')
+  console.log('%c wjun %c', 'background:#24272A; color:#ffffff', '', 'https://paperwj.top/')
+  console.log('%c Github %c', 'background:#24272A; color:#ffffff', '', 'https://github.com/dashingwj/dashingwj.github.io')
 })
 var isWebkit = navigator.userAgent.toLowerCase().indexOf('webkit') > -1,
   isOpera = navigator.userAgent.toLowerCase().indexOf('opera') > -1,
