@@ -417,16 +417,10 @@
         
         <div class="entry-content">
           <h1 id="1、什么是MapReduce"><a href="#1、什么是MapReduce" class="headerlink" title="1、什么是MapReduce"></a>1、什么是MapReduce</h1><h2 id="1-1-举个例子"><a href="#1-1-举个例子" class="headerlink" title="1.1 举个例子"></a>1.1 举个例子</h2><p>果园里有<strong>海量</strong>苹果，我们假设有三种颜色，红色、黄色、绿色，现在把苹果采摘完成了，并放到了一起，如下图所示</p>
-<center><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/MapReduce/2.png" style="zoom:50%;"></center>
-
-<p>我们现在需要分别统计每种颜色的苹果的个数，怎么实现呢？</p>
+<p><center><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/MapReduce/2.png" style="zoom:50%;"></center><br>我们现在需要分别统计每种颜色的苹果的个数，怎么实现呢？</p>
 <p>我们可以找一个人，来完成这个工作，但是别忘了，我们面对的是<strong>海量</strong>的苹果，所以我们需要很多人来一起完成这个工作。也就是说，这<strong>海量</strong>的苹果被分成了若干份，每个人处理一份，如下图所示：</p>
-<center><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/MapReduce/3.png" style="zoom:50%;"></center>
-
-<p>每个人只处理自己的那一份，他们的工作就是把自己分到的那份苹果，按照颜色进行分类，如下图所示：</p>
-<center><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/MapReduce/4.png" alt></center>
-
-<p>有很多人都完成了自己那份工作，那还差了一步，就是按照颜色进行汇总，也就是如下图所示：</p>
+<p><center><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/MapReduce/3.png" style="zoom:50%;"></center><br>每个人只处理自己的那一份，他们的工作就是把自己分到的那份苹果，按照颜色进行分类，如下图所示：</p>
+<p><center><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/MapReduce/4.png" alt></center><br>有很多人都完成了自己那份工作，那还差了一步，就是按照颜色进行汇总，也就是如下图所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/MapReduce/6.png" alt></p>
 <p>这样我们就统计了每个颜色的苹果的个数了。我们为什么要讲这个例子呢？其实这个例子就概括了什么是MapReduce。</p>
 <h2 id="1-2-什么是MapReduce"><a href="#1-2-什么是MapReduce" class="headerlink" title="1.2 什么是MapReduce"></a>1.2 什么是MapReduce</h2><p>Mapreduce是一个分布式、运算程序的编程框架，把海量的数据，切分成若干个小份，每台服务器负责若干个小份，对数据进行运算。那么海量的数据就平均分配到若干台服务器上。MapReduce所处理的数据是放在HDFS之上的。Mapreduce核心功能是将用户编写的业务逻辑代码，并发运行在一个hadoop集群上。</p>
@@ -446,15 +440,15 @@
 <h2 id="1）Mapper阶段"><a href="#1）Mapper阶段" class="headerlink" title="1）Mapper阶段"></a>1）Mapper阶段</h2><ul>
 <li>用户自定义的Mapper要继承自己的父类 Map</li>
 <li>Mapper的输入数据是KV对的形式（<strong>KV的类型可自定义</strong>）  </li>
-<li>Mapper中的业务逻辑写在自定义Mapper()方法中  </li>
+<li>Mapper中的业务逻辑写在自定义map()方法中  </li>
 <li>Mapper的输出数据是KV对的形式（<strong>KV的类型可自定义</strong>）</li>
-<li><strong>map task进程 对每一个&lt;K,V&gt;调用一次Mapper()方法</strong></li>
+<li><strong>map task进程 对每一个&lt;K,V&gt;调用一次map()方法</strong></li>
 </ul>
 <h2 id="2）Reducer阶段"><a href="#2）Reducer阶段" class="headerlink" title="2）Reducer阶段"></a>2）Reducer阶段</h2><ul>
 <li>用户自定义的Reducer要继承自己的父类Reducer</li>
 <li>Reducer的输入数据类型对应Mapper的输出数据类型，也是KV  </li>
-<li>Reducer的业务逻辑写在自定义Reducer)方法中  </li>
-<li><strong>reduce task进程对每一组相同k的&lt;k,v&gt;组调用一次Reducer()方法</strong>  </li>
+<li>Reducer的业务逻辑写在自定义reduce()方法中  </li>
+<li><strong>reduce task进程对每一组相同k的&lt;k,v&gt;组调用一次reduce()方法</strong>  </li>
 </ul>
 <h2 id="3）Driver阶段"><a href="#3）Driver阶段" class="headerlink" title="3）Driver阶段"></a>3）Driver阶段</h2><ul>
 <li>整个程序需要一个Drvier来进行提交，提交的是一个描述了各种必要信息的job对象  </li>
@@ -548,7 +542,7 @@ array        ArrayWritable
 &lt; 蓝 , 1 &gt;
 &lt; 红 , 1 &gt;
 &lt; 蓝 , 1 &gt;
-</code></pre><p>其实在传入Reduce端之前会对其相同的Key进行一次整合，例如上面的会被整合为</p>
+</code></pre><h2 id="2）Reducer阶段逻辑"><a href="#2）Reducer阶段逻辑" class="headerlink" title="2）Reducer阶段逻辑"></a>2）Reducer阶段逻辑</h2><p>其实在传入Reduce端之前会对其相同的Key进行一次整合，例如上面的会被整合为</p>
 <pre><code>&lt; 红 , [1,1,1,1] &gt;
 &lt; 黄 , [1,1] &gt;
 &lt; 蓝 , [1,1,1,1] &gt;
@@ -576,7 +570,7 @@ for (IntWritable Values : values){
 }
 context.write(key, new IntWritable(count));
 </code></pre>
-<p>至于Driver端可以说是一个模板，需要修改的地方注释以标出，完整代码如下：</p>
+<h2 id="3-Driver阶段逻辑"><a href="#3-Driver阶段逻辑" class="headerlink" title="3)Driver阶段逻辑"></a>3)Driver阶段逻辑</h2><p>至于Driver端可以说是一个模板，需要修改的地方注释以标出，完整代码如下：</p>
 <pre><code class="java">package AppleCount;
 
 import org.apache.hadoop.fs.Path;
@@ -696,9 +690,26 @@ public class AppleReducer extends Reducer&lt;Text, IntWritable, Text, IntWritabl
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/02/03/元胞自动机/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/CellAuto/cover.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/CellAuto/cover.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                元胞自动机</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2020/01/30/分布式文件系统—HDFS/" rel="next">
               <div class="background">

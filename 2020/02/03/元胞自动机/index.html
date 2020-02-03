@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Tag: 悦读 | Paperwjun</title>
+  <title itemprop="name">元胞自动机 | Paperwjun</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -380,229 +380,489 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/reading.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/dashingwj/CDN/CellAuto/cover.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/CellAuto/cover.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      元胞自动机</h1>
+      <p class="entry-census">
+        <span>
+          <a href="paperwj.top">
+            <img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@1.2/img/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="paperwj.top">Paperwjun</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-2-3<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">悦读</h1>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="一、元胞自动机概述"><a href="#一、元胞自动机概述" class="headerlink" title="一、元胞自动机概述"></a>一、元胞自动机概述</h1><h2 id="1-通俗解释"><a href="#1-通俗解释" class="headerlink" title="1.通俗解释"></a>1.通俗解释</h2><p>元胞自动机（cellular automata，CA） 是一种时间、空间、状态都离散，空间相互作用和时间因果关系为局部的网格动力学模型，具有模拟复杂系统时空演化过程的能力。  不同于一般的动力学模型，元胞自动机不是由严格定义的物理方程或函数确定，而是用一系列模型构造的规则构成。凡是满足这些规则的模型都可以算作是元胞自动机模型。因此，元胞自动机是一类模型的总称，或者说是一个方法框架。其特点是时间、空间、状态都离散，每个变量只取有限多个状态，且其状态改变的规则在时间和空间上都是局部的。 </p>
+<h2 id="2-动力学分类"><a href="#2-动力学分类" class="headerlink" title="2.动力学分类"></a>2.动力学分类</h2><p>元胞自动机的构建没有固定的数学公式，构成方式繁杂，变种很多，行为复杂。故其分类难度也较大，在 基于不同的出发点，元胞自动机可有多种分类，其中，最具影响力的当属S. Wolfram在80年代初做的基于动力学行为的元胞自动机分类：</p>
+<ul>
+<li><p>平稳型</p>
+<ul>
+<li>自任何初始状态开始，经过一定时间运行后，元胞空间趋于一个空间平稳的构形，这里空间平稳即指每一个元胞处于固定状态。不随时间变化而变化</li>
+</ul>
+</li>
+<li><p>周期型</p>
+<ul>
+<li>经过一定时间运行后，元胞空间趋于一系列简单的固定结构（Stable Patterns）或周期结构（Perlodical Patterns)。由于这些结构可看作是一种滤波器（Filter），故可应用到图像处理的研究中</li>
+</ul>
+</li>
+<li><p>混沌型</p>
+<ul>
+<li>自任何初始状态开始，经过一定时间运行后，元胞自动机表现出混沌的非周期行为，所生成的结构的统计特征不再变止，通常表现为分形分维特征 </li>
+</ul>
+</li>
+<li><p>复杂型</p>
+<ul>
+<li>出现复杂的局部结构，或者说是局部的混沌，其中有些会不断地传播</li>
+</ul>
+</li>
+</ul>
+<h1 id="二、模拟森林火灾原理"><a href="#二、模拟森林火灾原理" class="headerlink" title="二、模拟森林火灾原理"></a>二、模拟森林火灾原理</h1><p>下面介绍一种平稳型的元胞自动机的应用，在现实世界中我们有以下概念：</p>
+<ul>
+<li>时间</li>
+<li>空间</li>
+<li>物理法则</li>
+</ul>
+<p>因元胞自动机具有模拟复杂系统时空演变的能力，因此我们基于此模拟森林火灾也有其特定的时间、空间、物理法则，下面我们制定属于这个世界的时间空间和物理法则。</p>
+<ul>
+<li><p>定义世界</p>
+<ul>
+<li>100x100方格的二维世界</li>
+</ul>
+</li>
+<li><p>定义元素</p>
+<ul>
+<li>没着火的树</li>
+<li>着火的树</li>
+<li>空地</li>
+</ul>
+</li>
+<li><p>定义时间</p>
+<ul>
+<li>CPU时间</li>
+</ul>
+</li>
+<li><p>定义法则</p>
+<ul>
+<li>空地不会着火</li>
+<li>没着火的树若四周每有一颗着火的树有一定概率会着火，概率会累加且上限为100%</li>
+<li>着火三天的树会变成空地</li>
+</ul>
+</li>
+</ul>
+<h1 id="三、逻辑实现"><a href="#三、逻辑实现" class="headerlink" title="三、逻辑实现"></a>三、逻辑实现</h1><h2 id="First-Of-all"><a href="#First-Of-all" class="headerlink" title="First Of all"></a>First Of all</h2><ul>
+<li><p>实现世界</p>
+<ul>
+<li>Java定义100x100的二维数组</li>
+</ul>
+</li>
+<li><p>实现元素</p>
+<ul>
+<li>没着火的树 —— 0</li>
+<li>着火的树 —— 1</li>
+<li>空地 —— 2</li>
+</ul>
+</li>
+<li><p>实现时间</p>
+<ul>
+<li>遍历一次为现实世界的一个周期</li>
+</ul>
+</li>
+<li><p>实现法则</p>
+<ul>
+<li>0 -&gt; 1：表示树着火了</li>
+<li>1 -&gt; 2：表示着火三天的树变成空地【烧没了】</li>
+<li>定义同阶状态矩阵来记录着火天数</li>
+</ul>
+</li>
+</ul>
+<h2 id="What’more"><a href="#What’more" class="headerlink" title="What’more"></a>What’more</h2><p>考虑到现实世界的森林覆盖率以及提及到的周围有燃烧的树会概率着火，因此我们需要一个自定义函数依概率生成二维数组和状态的改变（例如：25%的概率由0 -&gt; 1），根据Java提供的Random类我们可以自定义我们的随机函数</p>
+<pre><code class="java">private static int customProbability(int Pro , int a , int b){
+        Random random = new Random();
+        if (random.nextInt(100) &lt; Pro){
+            return a;
+        }
+        else return b;
+    }
+</code></pre>
+<p>因此我们可以基于<code>customProbability()</code>方法来初始化我们的世界</p>
+<pre><code class="java">private static int[][] initializationWorld(int Pro){
+        //初始化世界
+        int[][] cellWorld = new int[100][100];
+        //初始化世界元素
+        for (int i = 0; i &lt; cellWorld.length; i++){
+            for (int j = 0; j&lt; cellWorld.length; j++){
+                cellWorld[i][j] = customProbability(Pro,0,2);
+            }
+        }
+
+        return cellWorld;
+    }
+</code></pre>
+<p>依概率随机给100*100的二维数组赋0【没着火的树】，2【空地】，同时我们还需要记录燃烧天数的状态矩阵，即同阶的全0二维数组</p>
+<pre><code class="java">private static int[][] stateMatrix(){
+        int[][] stateMatrix = new int[100][100];
+        for (int i = 0; i &lt; stateMatrix.length; i++){
+            for (int j = 0; j&lt; stateMatrix.length; j++){
+                stateMatrix[i][j] = 0;
+            }
+        }
+        return stateMatrix;
+    }
+</code></pre>
+<p>为测试世界以及状态矩阵是否符合要求并未后面查看世界做准备，在这里提前写出查看当前世界的方法，即接收一个二维数组并输出</p>
+<pre><code class="java">private static void outPut(int[][] Matrix){
+        for (int i=0; i&lt; Matrix.length;i++){
+            for (int j = 0 ; j&lt; Matrix.length;j++){
+                System.out.print(Matrix[i][j] + &quot; &quot;);
+            }
+            System.out.println();
+        }
+    }
+</code></pre>
+<p>高潮就要到来…某一天的早晨这片森林的若干颗树意外着火的，即将上面已经初始化好的二维数组中的若干个0变成1，并在相同位置的状态矩阵加1表示开始燃烧</p>
+<pre><code class="java">//随机点火，需要接收initializationWorld返回的世界,a表示失火树的个数
+    //这个方法有bug,有时间优化一下
+    //Matrix_1 初始化世界，Matrix_2 初始化状态矩阵
+    private static Map&lt;String,int[][]&gt; runFire(int[][] Matrix_1,int[][] Matrix_2, int a){
+        Random random = new Random();
+        Map&lt;String, int[][]&gt; result = new HashMap&lt;String, int[][]&gt;();
+        int count = 0;
+        //随机找a颗没有着火的树并让它们着火
+        while (true){
+            int i = random.nextInt(100);
+            int j = random.nextInt(100);
+            if (Matrix_1[i][j] == 0){
+                Matrix_1[i][j] = 1;
+                Matrix_2[i][j] += 1;
+                count += 1;
+            }
+            if (count == a )
+                break;
+        }
+        result.put(&quot;世界矩阵&quot;,Matrix_1);
+        result.put(&quot;状态矩阵&quot;,Matrix_2);
+        return result;
+    }
+</code></pre>
+<ul>
+<li>解释：这个方法设计之初考虑到需要返回世界矩阵和状态矩阵两个二维数组，同时还需要接收用户自定义燃烧颗，因此我用了Map这个数据结构，当时觉得自己怎么这么聪明^_^</li>
+</ul>
+<p>现在初始的树已经点着了，逻辑告诉我需要一个方法来告诉我们一颗没着火的树“上下左右”有多少颗着火的树，考虑到如果它是树就只有两种状态着火或者没着火，因此只需要一个方法接收4个布尔值并返回布尔值有多少个true或false</p>
+<pre><code class="java">private static int stateChangeNum(boolean a, boolean b, boolean c, boolean d){
+        int num = 0;
+        boolean[] isTrue ={a,b,c,d};
+        for (boolean Num : isTrue){
+            if (Num){
+                num += 1;
+            }
+        }
+        return  num;
+    }
+</code></pre>
+<p>到这里我们开始烧树了，即改变世界矩阵和状态矩阵</p>
+<pre><code class="java">//基于runFire(initializationWorld(80,0,2),1000)矩阵开始改变状态
+    //Pro森林覆盖面积，即以此概率生成世界
+    //num初始燃烧树的个数
+    //year燃烧年数
+    private static int[][] /*void*/ stateChange(int Pro, int num, int year){
+        Map&lt;String, int[][]&gt; map =runFire(initializationWorld(Pro),stateMatrix(),num);
+        int[][] worldMatrix = map.get(&quot;世界矩阵&quot;);
+        int[][] stateMatrix = map.get(&quot;状态矩阵&quot;);
+
+        System.out.println(&quot;==============初始世界==============&quot;);
+        outPut(worldMatrix);
+
+        for (int Year = 1; Year &lt;= year; Year++){
+
+            for (int i = 0; i &lt; worldMatrix.length; i++){
+                for (int j = 0; j&lt; worldMatrix.length; j++){
+                    if (worldMatrix[i][j] == 1){
+                        stateMatrix[i][j] += 1;
+                        if (stateMatrix[i][j] &gt; 3){
+                            worldMatrix[i][j] = 2;
+                        }
+                    }
+                    if (worldMatrix[i][j] == 0){
+                        try {
+                            boolean judge_1 = worldMatrix[i-1][j] == 1;
+                            boolean judge_2 = worldMatrix[i+1][j] == 1;
+                            boolean judge_3 = worldMatrix[i][j-1] == 1;
+                            boolean judge_4 = worldMatrix[i][j+1] == 1;
+                            int isTrueNum = stateChangeNum(judge_1,judge_2,judge_3,judge_4);
+                            if (judge_1 || judge_2|| judge_3 || judge_4){
+                                worldMatrix[i][j] = customProbability(25 * isTrueNum, 1, 0);
+                            }
+                        }
+                        catch (Exception e){
+                            //边界树假设永远不会着火
+                        }
+                    }
+                }
+            }
+            System.out.println(&quot;==============第&quot; + Year + &quot;年世界==============&quot;);
+            outPut(worldMatrix);
+        }
+
+        return worldMatrix;     //预留给GUI
+    }
+</code></pre>
+<ul>
+<li>解释：有些小伙伴已经发现了这个方法有bug，那就是当处于边缘的树它最多只有三个邻居，这儿样的话这个方法可能会发生数组越界Exception，其实不难解决只需要单独加一个判断当数组下表有0的时候我们单独判断，但是，哈哈哈我已经写了三个for循环嵌套，还有n个if判断，虽然我的逻辑依然清晰，但是我懒，直接来个异常处理并假设边界树不会着火[着火了有人灭]，毕竟数学建模嘛怎么简单怎么来，还不许人写几个假设？？？</li>
+</ul>
+<p>考虑到封装，上面的所有方法我都用了private，是时候留一个公开的接口来启动程序</p>
+<pre><code class="java">public static void start(int Pro, int num, int year){
+        stateChange(Pro,num,year);
+    }
+</code></pre>
+<h2 id="Last-But-Not-Least"><a href="#Last-But-Not-Least" class="headerlink" title="Last But Not Least"></a>Last But Not Least</h2><p>完整代码如下</p>
+<pre><code class="java">package ForestFire;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+public class World {
+    //初始化世界和元素
+    private static int[][] initializationWorld(int Pro){
+        //初始化世界
+        int[][] cellWorld = new int[100][100];
+        //初始化世界元素
+        for (int i = 0; i &lt; cellWorld.length; i++){
+            for (int j = 0; j&lt; cellWorld.length; j++){
+                cellWorld[i][j] = customProbability(Pro,0,2);
+            }
+        }
+
+        return cellWorld;
+    }
+
+    //初始化状态矩阵
+    private static int[][] stateMatrix(){
+        int[][] stateMatrix = new int[100][100];
+        for (int i = 0; i &lt; stateMatrix.length; i++){
+            for (int j = 0; j&lt; stateMatrix.length; j++){
+                stateMatrix[i][j] = 0;
+            }
+        }
+        return stateMatrix;
+    }
+
+    //自定义概率
+    private static int customProbability(int Pro , int a , int b){
+        Random random = new Random();
+        if (random.nextInt(100) &lt; Pro){
+            return a;
+        }
+        else return b;
+    }
+
+    //输出世界状态
+    private static void outPut(int[][] Matrix){
+        for (int i=0; i&lt; Matrix.length;i++){
+            for (int j = 0 ; j&lt; Matrix.length;j++){
+                System.out.print(Matrix[i][j] + &quot; &quot;);
+            }
+            System.out.println();
+        }
+    }
+
+    //随机点火，需要接收initializationWorld返回的世界,a表示失火树的个数
+    //这个方法有bug,有时间优化一下
+    //Matrix_1 初始化世界，Matrix_2 初始化状态矩阵
+    private static Map&lt;String,int[][]&gt; runFire(int[][] Matrix_1,int[][] Matrix_2, int a){
+        Random random = new Random();
+        Map&lt;String, int[][]&gt; result = new HashMap&lt;String, int[][]&gt;();
+        int count = 0;
+        //随机找a颗没有着火的树并让它们着火
+        while (true){
+            int i = random.nextInt(100);
+            int j = random.nextInt(100);
+            if (Matrix_1[i][j] == 0){
+                Matrix_1[i][j] = 1;
+                Matrix_2[i][j] += 1;
+                count += 1;
+            }
+            if (count == a )
+                break;
+        }
+        result.put(&quot;世界矩阵&quot;,Matrix_1);
+        result.put(&quot;状态矩阵&quot;,Matrix_2);
+        return result;
+    }
+    //返回一棵树周围有多少个燃烧的树
+    private static int stateChangeNum(boolean a, boolean b, boolean c, boolean d){
+        int num = 0;
+        boolean[] isTrue ={a,b,c,d};
+        for (boolean Num : isTrue){
+            if (Num){
+                num += 1;
+            }
+        }
+        return  num;
+    }
+
+
+    //基于runFire(initializationWorld(80,0,2),1000)矩阵开始改变状态
+    //Pro森林覆盖面积，即以此概率生成世界
+    //num初始燃烧树的个数
+    //year燃烧年数
+    private static int[][] /*void*/ stateChange(int Pro, int num, int year){
+        Map&lt;String, int[][]&gt; map =runFire(initializationWorld(Pro),stateMatrix(),num);
+        int[][] worldMatrix = map.get(&quot;世界矩阵&quot;);
+        int[][] stateMatrix = map.get(&quot;状态矩阵&quot;);
+
+        System.out.println(&quot;==============初始世界==============&quot;);
+        outPut(worldMatrix);
+
+        for (int Year = 1; Year &lt;= year; Year++){
+
+            for (int i = 0; i &lt; worldMatrix.length; i++){
+                for (int j = 0; j&lt; worldMatrix.length; j++){
+                    if (worldMatrix[i][j] == 1){
+                        stateMatrix[i][j] += 1;
+                        if (stateMatrix[i][j] &gt; 3){
+                            worldMatrix[i][j] = 2;
+                        }
+                    }
+                    if (worldMatrix[i][j] == 0){
+                        try {
+                            boolean judge_1 = worldMatrix[i-1][j] == 1;
+                            boolean judge_2 = worldMatrix[i+1][j] == 1;
+                            boolean judge_3 = worldMatrix[i][j-1] == 1;
+                            boolean judge_4 = worldMatrix[i][j+1] == 1;
+                            int isTrueNum = stateChangeNum(judge_1,judge_2,judge_3,judge_4);
+                            if (judge_1 || judge_2|| judge_3 || judge_4){
+                                worldMatrix[i][j] = customProbability(25 * isTrueNum, 1, 0);
+                            }
+                        }
+                        catch (Exception e){
+                            //边界树假设永远不会着火
+                        }
+                    }
+                }
+            }
+            System.out.println(&quot;==============第&quot; + Year + &quot;年世界==============&quot;);
+            outPut(worldMatrix);
+        }
+
+        return worldMatrix;     //预留给GUI
+    }
+
+    public static void start(int Pro, int num, int year){
+        stateChange(Pro,num,year);
+    }
+
+}
+</code></pre>
+<p>最后我打了jar包<a href="https://www.lanzous.com/i90mhfi" target="_blank" rel="noopener">jar包在这里</a>这个jar包会实时更新，不间断的完善这个类加入更多的注释，自定义世界等功能，最最重要的是预留了一个GUI数据的接口，接下来的时间我会学习Swing框架最终时间一个有界面的模拟森林，当然有大佬看见欢迎过来索要最新的jar包。</p>
+<h1 id="四、效果展示"><a href="#四、效果展示" class="headerlink" title="四、效果展示"></a>四、效果展示</h1><ul>
+<li>说在前面：以下效果是基于Excel做的^_^<br><a href="https://cdn.jsdelivr.net/gh/dashingwj/CDN/CellAuto/video.mp4" target="_blank" rel="noopener">效果视频点这里</a></li>
+</ul>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/donate/Pay.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/donate/WeChat.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/01/31/分布式并行编程框架—MapReduce/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                分布式并行编程框架-MapReduce</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/02/03/元胞自动机/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/CellAuto/cover.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/02/03/元胞自动机/">
-    元胞自动机</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-2-3</div>
-    <p>
-    模拟森林火灾</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/02/03/元胞自动机/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/01/31/分布式并行编程框架—MapReduce/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/01/31/分布式并行编程框架—MapReduce/">
-    分布式并行编程框架-MapReduce</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-1-31</div>
-    <p>
-    Hadoop重要组件</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/01/31/分布式并行编程框架—MapReduce/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/01/30/分布式文件系统—HDFS/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/01/30/分布式文件系统—HDFS/">
-    分布式文件系统-HDFS</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-1-30</div>
-    <p>
-    Hadoop重要组件</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/01/30/分布式文件系统—HDFS/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/01/28/My-Thesis/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1580205505301&amp;di=fe3bc2810b710c8d734588019ad8e770&amp;imgtype=0&amp;src=http%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F01%2F17%2F36%2F5904c661eaaeb_610.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/01/28/My-Thesis/">
-    My Thesis</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-1-28</div>
-    <p>
-    My Thesis</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/01/28/My-Thesis/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/01/28/转载-20200201/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/WeChat/cover.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/01/28/转载-20200201/">
-    转载-20200201</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-1-28</div>
-    <p>
-    河南全省学校推迟开学</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/01/28/转载-20200201/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/01/01/Hexo-Theme-Sakura/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=204907964,728796476&amp;fm=26&amp;gp=0.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/01/01/Hexo-Theme-Sakura/">
-    Hexo-Theme-Sakura</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-1-1</div>
-    <p>
-    hexo-sakura主题使用教程</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/01/01/Hexo-Theme-Sakura/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "d2RXwESwQhzuKb0bPBDCMRaX-gzGzoHsz",
+        appKey: "d9EGIaDKjwkansWy63LzrqRr",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="paperwj.top" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@1.2/img/avatar.jpg" itemprop="image" alt="Paperwjun" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="paperwj.top" itemprop="url" rel="author">Paperwjun</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>只喜欢学习</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
