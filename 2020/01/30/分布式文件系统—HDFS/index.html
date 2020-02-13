@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Paperwjun</title>
+  <title itemprop="name">分布式文件系统-HDFS | Paperwjun</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -372,67 +372,249 @@
   </div>
 </header>
 
-        <div class="pattern-center-blank"></div>
-  
-  <div id="content" class="site-content">
-    <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
- 
-<html xmlns="http://www.w3.org/1999/xhtml">
- 
-<head><meta name="generator" content="Hexo 3.9.0">
- 
-<meta charset="UTF-8" http-equiv="Content-Type" content="text/html; charset=utf-8">
- 
-<title>404-对不起！您访问的页面不存在</title>
- 
-<style type="text/css">
- 
-.head404{ width:580px; height:234px; margin:50px auto 0 auto; background:url(https://www.daixiaorui.com/Public/images/head404.png) no-repeat; }
- 
-.txtbg404{ width:499px; height:169px; margin:10px auto 0 auto; background:url(https://www.daixiaorui.com/Public/images/txtbg404.png) no-repeat;}
- 
-.txtbg404 .txtbox{ width:390px; position:relative; top:30px; left:60px;color:#eee; font-size:13px;}
- 
-.txtbg404 .txtbox p {margin:5px 0; line-height:18px;}
- 
-.txtbg404 .txtbox .paddingbox { padding-top:15px;}
- 
-.txtbg404 .txtbox p a { color:#eee; text-decoration:none;}
- 
-.txtbg404 .txtbox p a:hover { color:#FC9D1D; text-decoration:underline;}
- 
-</style>
- 
-</head>
- 
- 
- 
-<body bgcolor="#494949">
- 
-   	<div class="head404"></div>
- 
-   	<div class="txtbg404">
- 
-  <div class="txtbox">
- 
-      <p>对不起，您请求的页面不存在、或已被删除、或暂时不可用</p>
- 
-      <p class="paddingbox">请点击以下链接继续浏览网页</p>
- 
-      <p>》<a style="cursor:pointer" οnclick="history.back()">返回上一页面</a></p>
- 
-      <p>》<a href="https://www.daixiaorui.com" target="_blank" rel="noopener">返回网站首页</a></p>
- 
-    </div>
- 
-  </div>
- 
-</body>
- 
-</html>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
 
-      <!-- .entry-content -->
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      分布式文件系统-HDFS</h1>
+      <p class="entry-census">
+        <span>
+          <a href="paperwj.top">
+            <img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@1.2/img/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="paperwj.top">Paperwjun</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-1-30<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><p>仅用于个人学习使用且<strong>电脑配置有限</strong>，因此搭建伪分布式模式，即在单节点上启动NameNode、DataNode、SecondaryNameNode等进程，但操作、原理与完全分布式模式一样仅学习还是够用的。HDFS作为Hadoop两大重要组成部分之一，主要解决海量数据存储问题，<a href="https://baike.baidu.com/item/HDFS" target="_blank" rel="noopener">详细信息点击这里哟！</a><br>下面是我的实验环境（Hadoop大多运行在Linux系统下）</p>
+<pre><code>服务器：Centos 6
+虚拟机：VMware Workstation Pro 13.0
+SSH：MobaXterm
+PC：Win10
+</code></pre><h1 id="二、HDFS运行原理"><a href="#二、HDFS运行原理" class="headerlink" title="二、HDFS运行原理"></a>二、HDFS运行原理</h1><h2 id="1-HDFS概念"><a href="#1-HDFS概念" class="headerlink" title="1.HDFS概念"></a>1.HDFS概念</h2><ul>
+<li>HDFS，是 Hadoop Distribute File System 的简称，意为：Hadoop 分布式文件系统。是 Hadoop 核心组件之一。 </li>
+<li>HDFS解决的问题就是大数据的存储。它们是横跨在多台计算机上的存储系统。分布式文件系统在大数据时代有着广泛的应用前景，它们为存储和处理超大规模数据提供所需的扩展能力。</li>
+<li>HDFS起源于Google的GFS论文（GFS，Mapreduce，BigTable为google的旧的三驾马车）</li>
+</ul>
+<h2 id="2-HDFS优缺点"><a href="#2-HDFS优缺点" class="headerlink" title="2.HDFS优缺点"></a>2.HDFS优缺点</h2><ul>
+<li><p>优点</p>
+<ul>
+<li>高容错性</li>
+<li>适合大数据处理</li>
+<li>可搭建在廉价的机器上</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>不适合低延迟数据访问</li>
+<li>不适合大量小文件进行存储</li>
+<li>不支持文件并发写入和文件随机修改</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-HDFS组成架构（重点）"><a href="#3-HDFS组成架构（重点）" class="headerlink" title="3.HDFS组成架构（重点）"></a>3.HDFS组成架构（重点）</h2><p>HDFS 采用 master/slave 架构。一般一个 HDFS 集群是有一个 Namenode 和一定数目的Datanode 组成。Namenode 是 HDFS 集群主节点，Datanode 是 HDFS 集群从节点，两种角色各司其职，共同协调完成分布式的文件存储服务。</p>
+<p><img src="https://hadoop.apache.org/docs/r1.0.4/cn/images/hdfsarchitecture.gif" alt="HDFS架构设计"></p>
+<ul>
+<li><p>Client：客户端</p>
+<ul>
+<li>文件切分。文件上传HDFS的时候，Client将文件切分成一个一个的Block</li>
+<li>与NameNode交互，获取文件的位置信息  </li>
+<li>与DataNode交互，读取或者写入数据  </li>
+<li>提供一些命令来管理HDFS</li>
+</ul>
+</li>
+<li><p>NameNode：名称节点。就是Master，它是一个主管、管理者、老大  </p>
+<ul>
+<li>存储元数据（内存中）</li>
+<li>保存block与DataNode之间的映射关系</li>
+</ul>
+</li>
+<li><p>DataNode：数据节点。就是小弟。NameNode下达命令，DataNode执行实际的操作  </p>
+<ul>
+<li>存储文件内容（磁盘）</li>
+<li>维护block ID到DataNode本地文件的映射关系</li>
+<li>存储到本地Linux系统中</li>
+</ul>
+</li>
+<li><p>SecondaryNameNode：第二名称节点。NameNode的<strong>冷备份</strong></p>
+<ul>
+<li>主要解决EditLog不断增大的问题（下面会详细介绍）</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-1-Block大小"><a href="#3-1-Block大小" class="headerlink" title="3.1 Block大小"></a>3.1 Block大小</h3><p>​        HDFS中的文件在物理上是分块存储（block），块的大小可以通过配置参数(<code>dfs.blocksize</code>)来规定，默认大小在hadoop2.x版本中是128M，老版本中是64M。HDFS的块设计成，其目的是为了最小化寻址开销。如果块设置得足够大，从磁盘传输数据的时间会明显大于定位这个块开始位置所需的时间。因而，传输一个由多个块组成的文件的时间取决于磁盘传输速率。</p>
+<h3 id="3-2-副本机制"><a href="#3-2-副本机制" class="headerlink" title="3.2 副本机制"></a>3.2 副本机制</h3><p>​        为了容错，文件的所有 block 都会有副本。每个文件的 block 大小和副本系数都是可配置的。应用程序可以指定某个文件的副本数目，副本系数可以在文件创建的时候指定，也可以在之后改变。  </p>
+<h3 id="3-3-元数据"><a href="#3-3-元数据" class="headerlink" title="3.3 元数据"></a>3.3 元数据</h3><p>​         数据的描述信息，比如这个文件的路径，这个文件的副本数，每个副本保存在哪个DataNode上，就相当于真真正正的一个人，他有一些信息：身高、体重、姓名、性别等，通过这些信息就可以描述这个人，那描述HDFS上真实数据的信息，就称为元数据。  <img src="https://hadoop.apache.org/docs/r1.0.4/cn/images/hdfsdatanodes.gif" alt></p>
+<h2 id="4-HDFS运行原理（重点）"><a href="#4-HDFS运行原理（重点）" class="headerlink" title="4.HDFS运行原理（重点）"></a>4.HDFS运行原理（重点）</h2><ul>
+<li><p>NameNode启动</p>
+<ul>
+<li>将FsImage文件内容加载到内存中</li>
+<li>执行EditLog文件的各项操作，使得内存的元数据和实际的同步</li>
+<li>得到新的FsImage并创建一个空的EditLog文件</li>
+<li>启动后所有的操作都记录在EditLog，并不会添加在FsImage中</li>
+</ul>
+</li>
+<li><p>DataNode启动</p>
+</li>
+<li><p>SecondaryNameNode启动</p>
+</li>
+</ul>
+<p>FsImage：维护文件系统树以及文件树中所有的文件和文件夹的元数据，但不维护块在哪个DataNode（通过NameNode与DataNode实时沟通生成文件目录并储存在内存中），主要记录文件复制等级、修改和访问时间、访问权限、块大小等</p>
+<p>EditLog：操作日志文件，记录所有针对文件的增删改查等操作</p>
+<p>通过FsImage和EditLog的结合就能完成所有文件的增删改查，但随着文件的修改EditLog会变得非常庞大，这时候就需要通过SecondaryNameNode来解决。</p>
+<h3 id="4-1-NameNode运行机制"><a href="#4-1-NameNode运行机制" class="headerlink" title="4.1 NameNode运行机制"></a>4.1 NameNode运行机制</h3><ul>
+<li>1.SecondaryNameNode会定期和NameNode通信，请求暂停使用EditLog文件，暂时将新的操作写在新的文件EditLog.new上且瞬间完成。</li>
+<li>2.SecondaryNameNode通过HTTP GET方式从NameNode上获取FsImage和EditLog并下载到本地。</li>
+<li>3.SecondaryNameNode将下载的FsImage载入内存并与EditLog进行合并</li>
+<li>4.SecondaryNameNode通过post方式将新的FsImage发送给NameNode  </li>
+<li>5.NameNode将新的FsImage替换掉，同时将EditLog.new替换成EditLog  </li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/1.png" alt></p>
+<h3 id="4-2-HDFS思维导图"><a href="#4-2-HDFS思维导图" class="headerlink" title="4.2 HDFS思维导图"></a>4.2 HDFS思维导图</h3><p>凑合着看，别问为什么是个图片，问就是没钱^_^</p>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/2.jpg" alt></p>
+<h1 id="三、HDFS实操"><a href="#三、HDFS实操" class="headerlink" title="三、HDFS实操"></a>三、HDFS实操</h1><h2 id="1-安装虚拟机"><a href="#1-安装虚拟机" class="headerlink" title="1.安装虚拟机"></a>1.安装虚拟机</h2><p>这里强烈推荐一个微信公众号<strong>管家课堂</strong>，为数不多的超良心公众号，各种常用软件安装教程。<a href="https://mp.weixin.qq.com/s/GPMsgE-BFklqUmFwafPVLw" target="_blank" rel="noopener">这是一个安装传送门，记得关注哟</a></p>
+<h2 id="2-安装Linux并安装Hadoop"><a href="#2-安装Linux并安装Hadoop" class="headerlink" title="2.安装Linux并安装Hadoop"></a>2.安装Linux并安装Hadoop</h2><p>我已经将配置好的Centos6打包好了<a href="https://pan.baidu.com/s/1eJx9wWaxsr4n_68m2GcD1w" target="_blank" rel="noopener">网盘链接，提取码:cpj1</a></p>
+<p>[当然爱折腾的可自行下载、配置、安装]。</p>
+<p>解压下载好的安装包，打开VMware虚拟机，点击文件-&gt;打开（<strong>快捷键Ctrl + O</strong>），找到刚才解压的路径打开linux01虚拟机配置即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/3.png" alt></p>
+<p>出现该提示点击<strong>我已移动该虚拟机</strong>，无需其他操作等待加载完成即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/4.png" alt></p>
+<p>该虚拟机用户名如下，要使用<strong>root账户</strong>[权限高]</p>
+<pre><code>用户1：admin
+密码：123456
+用户2：root
+密码：123456
+</code></pre><p>如下即为Centos6的桌面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/5.png" alt></p>
+<p>从PC机文件上传到虚拟机并不容易，因此我们使用SSH远程连接Linux，这里我使用MobaXterm。首先我们需要<strong>获取这个Linux的IP地址</strong>，右击桌面点击在终端打开输入</p>
+<pre><code>ifconfig
+</code></pre><p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/6.png" alt></p>
+<p>框选出来的就是本机IP，打开<strong>MobaXterm-&gt;Session-&gt;SSH</strong>输入刚才得到的IP即可，</p>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/7.png" alt></p>
+<p>第一次连接需要输入root用户的密码，<strong>注：Linux为保护用户安全，在你输入密码时屏幕并不会出现任何符号。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/8.png" alt></p>
+<p>黑色背景区域即为Linux终端，一般使用Lin系统是不会选择启动图形化界面的。左边文件夹区域为Linux的文件系统，当需要将PC机文件上传到Linux时，只需拖拽即可。</p>
+<p><strong>这个Linux系统已经集成了Hadoop，不需要额外安装。</strong></p>
+<h2 id="3-HDFS常见操作命令"><a href="#3-HDFS常见操作命令" class="headerlink" title="3.HDFS常见操作命令"></a>3.HDFS常见操作命令</h2><p>首先需要修改一下配置，输入</p>
+<pre><code>vi /etc/hosts    
+</code></pre><p>按<code>i</code>，将<strong>最后一行的IP修改为自己</strong>的，按<code>Esc</code>退出修改模式并输入</p>
+<pre><code>:wq
+</code></pre><p>保存并关闭，上述只是Linux系统的操作命令，在我另一篇文章会有详细介绍，并且Hadoop的一些命令和Linux及其一致。</p>
+<p>启动HDFS</p>
+<pre><code>start-dfs.sh
+</code></pre><p>启动完成可查看当前进程检查HDFS是否全部启动，输入如下代码</p>
+<pre><code>jps
+</code></pre><p>当看到NameNode、DataNode、SecondaryNameNode即为启动成功</p>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/9.png" alt></p>
+<p>若有没有启动的可以结束HDFS并在此启动，代码如下</p>
+<pre><code>stop-dfs.sh
+start-dfs.sh
+</code></pre><p>查看当前HDFS文件</p>
+<pre><code>hdfs dfs -ls /
+</code></pre><p>在HDFS新建文件夹</p>
+<pre><code>hdfs dfs -mkdir /Test    //在根目录下创建Test文件夹
+</code></pre><p>删除HDFS指定文件(夹)</p>
+<pre><code>hdfs dfs -rm -f /Test    //删除指定文件夹
+hdfs dfs -rm /name.txt    //删除指定文件
+</code></pre><p>将Linux文件上传到HDFS上</p>
+<pre><code>hdfs dfs -put /MapReduce/test.txt /Data
+</code></pre><p>第一个路径为Linux要上传文件的绝对路径，第二个为上传到HDFS的路径（上述代码不要直接复制，因为你的Linux和HDFS可能没有这个文件夹和文件）</p>
+<p>将HDFS文件下载到Linux本地</p>
+<pre><code>hdfs dfs -get /Data/text /MapReduce
+</code></pre><p>同理第一个路径为HDFS要下载文件的绝对路径，第二个为下载到Linux本地的文件路径（Linux本地不能有与要下载文件同名的文件，道理很显然）</p>
+<p>最后，关机命令（虚拟机上的系统很脆弱，要小心呵护不要暴力关机！！！）</p>
+<pre><code>shutdown -h now
+</code></pre><p>上述命令基本够用学习MapReduce了，期待下一遍博文将会详细介绍Hadoop另一个重要组件<strong>MapReduce</strong></p>
+<p><center><img src="https://bpic.588ku.com//original_origin_min_pic/18/06/20/f651302009e2e93fb59702e8100e9817.jpg" alt></center></p>
+<ul>
+<li>需要MobaXterm及其他技术支持联系微信^_^ skr~</li>
+</ul>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/donate/Pay.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/donate/WeChat.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/01/31/分布式并行编程框架—MapReduce/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                分布式并行编程框架-MapReduce</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/01/28/My-Thesis/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1580205505301&di=fe3bc2810b710c8d734588019ad8e770&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F01%2F17%2F36%2F5904c661eaaeb_610.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1580205505301&di=fe3bc2810b710c8d734588019ad8e770&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F01%2F17%2F36%2F5904c661eaaeb_610.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                My Thesis</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
 <div id="vcomments"></div>
 <script>
@@ -448,43 +630,25 @@
   }
 </script>
 
-      <div class="single-reward">
-        <div class="reward-open">赏
-          <div class="reward-main">
-            <ul class="reward-row">
-              <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/donate/Pay.jpg"></li>
-              <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/donate/WeChat.png"></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-      <footer class="post-footer">
-        <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-        <div class="post-tags">
-        </div>
-        <div class="post-share">
-          <div class="social-share sharehidden share-component"></div>
-          <i class="iconfont show-share icon-forward"></i>
-        </div>
-      </footer><!-- .entry-footer -->
-    </article>
-      <!-- #post-## -->
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/img/avatar.jpg" itemprop="image" alt="wjun" height="70" width="70"></a>
+          <a href="paperwj.top" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@1.2/img/avatar.jpg" itemprop="image" alt="Paperwjun" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="https://paperwj.top" itemprop="url" rel="author">wjun</a>
+            <a href="paperwj.top" itemprop="url" rel="author">Paperwjun</a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i>当局者最迷，旁观者最嗨</p>
+        <p><i class="iconfont icon-write"></i>只喜欢学习</p>
       </section>
+    </main><!-- #main -->
   </div><!-- #primary -->
 </div>
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Paperwjun</title>
+  <title itemprop="name">分布式并行编程框架-MapReduce | Paperwjun</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -372,67 +372,352 @@
   </div>
 </header>
 
-        <div class="pattern-center-blank"></div>
-  
-  <div id="content" class="site-content">
-    <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
- 
-<html xmlns="http://www.w3.org/1999/xhtml">
- 
-<head><meta name="generator" content="Hexo 3.9.0">
- 
-<meta charset="UTF-8" http-equiv="Content-Type" content="text/html; charset=utf-8">
- 
-<title>404-对不起！您访问的页面不存在</title>
- 
-<style type="text/css">
- 
-.head404{ width:580px; height:234px; margin:50px auto 0 auto; background:url(https://www.daixiaorui.com/Public/images/head404.png) no-repeat; }
- 
-.txtbg404{ width:499px; height:169px; margin:10px auto 0 auto; background:url(https://www.daixiaorui.com/Public/images/txtbg404.png) no-repeat;}
- 
-.txtbg404 .txtbox{ width:390px; position:relative; top:30px; left:60px;color:#eee; font-size:13px;}
- 
-.txtbg404 .txtbox p {margin:5px 0; line-height:18px;}
- 
-.txtbg404 .txtbox .paddingbox { padding-top:15px;}
- 
-.txtbg404 .txtbox p a { color:#eee; text-decoration:none;}
- 
-.txtbg404 .txtbox p a:hover { color:#FC9D1D; text-decoration:underline;}
- 
-</style>
- 
-</head>
- 
- 
- 
-<body bgcolor="#494949">
- 
-   	<div class="head404"></div>
- 
-   	<div class="txtbg404">
- 
-  <div class="txtbox">
- 
-      <p>对不起，您请求的页面不存在、或已被删除、或暂时不可用</p>
- 
-      <p class="paddingbox">请点击以下链接继续浏览网页</p>
- 
-      <p>》<a style="cursor:pointer" οnclick="history.back()">返回上一页面</a></p>
- 
-      <p>》<a href="https://www.daixiaorui.com" target="_blank" rel="noopener">返回网站首页</a></p>
- 
-    </div>
- 
-  </div>
- 
-</body>
- 
-</html>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
 
-      <!-- .entry-content -->
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      分布式并行编程框架-MapReduce</h1>
+      <p class="entry-census">
+        <span>
+          <a href="paperwj.top">
+            <img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@1.2/img/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="paperwj.top">Paperwjun</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-1-31<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="1、什么是MapReduce"><a href="#1、什么是MapReduce" class="headerlink" title="1、什么是MapReduce"></a>1、什么是MapReduce</h1><h2 id="1-1-举个例子"><a href="#1-1-举个例子" class="headerlink" title="1.1 举个例子"></a>1.1 举个例子</h2><p>果园里有<strong>海量</strong>苹果，我们假设有三种颜色，红色、黄色、绿色，现在把苹果采摘完成了，并放到了一起，如下图所示</p>
+<p><center><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/MapReduce/2.png" style="zoom:50%;"></center><br>我们现在需要分别统计每种颜色的苹果的个数，怎么实现呢？</p>
+<p>我们可以找一个人，来完成这个工作，但是别忘了，我们面对的是<strong>海量</strong>的苹果，所以我们需要很多人来一起完成这个工作。也就是说，这<strong>海量</strong>的苹果被分成了若干份，每个人处理一份，如下图所示：</p>
+<p><center><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/MapReduce/3.png" style="zoom:50%;"></center><br>每个人只处理自己的那一份，他们的工作就是把自己分到的那份苹果，按照颜色进行分类，如下图所示：</p>
+<p><center><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/MapReduce/4.png" alt></center><br>有很多人都完成了自己那份工作，那还差了一步，就是按照颜色进行汇总，也就是如下图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/MapReduce/6.png" alt></p>
+<p>这样我们就统计了每个颜色的苹果的个数了。我们为什么要讲这个例子呢？其实这个例子就概括了什么是MapReduce。</p>
+<h2 id="1-2-什么是MapReduce"><a href="#1-2-什么是MapReduce" class="headerlink" title="1.2 什么是MapReduce"></a>1.2 什么是MapReduce</h2><p>Mapreduce是一个分布式、运算程序的编程框架，把海量的数据，切分成若干个小份，每台服务器负责若干个小份，对数据进行运算。那么海量的数据就平均分配到若干台服务器上。MapReduce所处理的数据是放在HDFS之上的。Mapreduce核心功能是将用户编写的业务逻辑代码，并发运行在一个hadoop集群上。</p>
+<h1 id="2、MapReduce核心思想"><a href="#2、MapReduce核心思想" class="headerlink" title="2、MapReduce核心思想"></a>2、MapReduce核心思想</h1><p>MapReduce实现的分布式的运算，程序往往需要分成至少2个阶段  </p>
+<ul>
+<li>第一个阶段的<strong>map task</strong>并发执行，完全并行运行，互不相干  </li>
+<li>第二个阶段的<strong>reduce task</strong>并发执行，互不相干，他们的数据依赖于所有maptask的输出  </li>
+</ul>
+<p>再拿上面例子来看一下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/MapReduce/7.png" alt></p>
+<p>map task有若干个，每个map task处理一部分数据，对数据进行分类等操作，并得到一个结果数据，然后每个map task处理之后的数据，会被拿到reduce task端进行合并。所以简单来说:</p>
+<ul>
+<li>map task是用来处理每一小分数据</li>
+<li>reduce task是用来合并map task成立之后的数据</li>
+</ul>
+<h1 id="3、MapReduce编码规范"><a href="#3、MapReduce编码规范" class="headerlink" title="3、MapReduce编码规范"></a>3、MapReduce编码规范</h1><p>用户编写的程序分成三个部分：Mapper、Reducer和Driver</p>
+<h2 id="1）Mapper阶段"><a href="#1）Mapper阶段" class="headerlink" title="1）Mapper阶段"></a>1）Mapper阶段</h2><ul>
+<li>用户自定义的Mapper要继承自己的父类 Map</li>
+<li>Mapper的输入数据是KV对的形式（<strong>KV的类型可自定义</strong>）  </li>
+<li>Mapper中的业务逻辑写在自定义map()方法中  </li>
+<li>Mapper的输出数据是KV对的形式（<strong>KV的类型可自定义</strong>）</li>
+<li><strong>map task进程 对每一个&lt;K,V&gt;调用一次map()方法</strong></li>
+</ul>
+<h2 id="2）Reducer阶段"><a href="#2）Reducer阶段" class="headerlink" title="2）Reducer阶段"></a>2）Reducer阶段</h2><ul>
+<li>用户自定义的Reducer要继承自己的父类Reducer</li>
+<li>Reducer的输入数据类型对应Mapper的输出数据类型，也是KV  </li>
+<li>Reducer的业务逻辑写在自定义reduce()方法中  </li>
+<li><strong>reduce task进程对每一组相同k的&lt;k,v&gt;组调用一次reduce()方法</strong>  </li>
+</ul>
+<h2 id="3）Driver阶段"><a href="#3）Driver阶段" class="headerlink" title="3）Driver阶段"></a>3）Driver阶段</h2><ul>
+<li>整个程序需要一个Drvier来进行提交，提交的是一个描述了各种必要信息的job对象  </li>
+</ul>
+<h1 id="4、MapReduce模拟示例"><a href="#4、MapReduce模拟示例" class="headerlink" title="4、MapReduce模拟示例"></a>4、MapReduce模拟示例</h1><p>现在我们来模拟上面的案例，通过如下代码生成一些苹果</p>
+<pre><code class="python">import random
+f = open(&#39;AppleCount.txt&#39;,&#39;w&#39;)
+apple = [&#39;红 &#39;,&#39;黄 &#39;,&#39;蓝 &#39;,&#39;绿 &#39;,&#39;\n&#39;]
+for i in range(1000):
+    choice = random.randint(0,4)
+    if choice == 0:
+        f.write(apple[0])
+    if choice == 1:
+        f.write(apple[1])
+    if choice == 2:
+        f.write(apple[2])
+    if choice == 3:
+        f.write(apple[3])
+    if choice == 4:
+        f.write(apple[4])
+f.close()
+</code></pre>
+<p>通过随机数0-4表示红、黄、蓝、绿四种颜色的苹果，并通过<code>\n</code>换行，一行数据表示一个人的任务。</p>
+<p><a href="https://www.lanzous.com/i8yd5rc" target="_blank" rel="noopener">AppleCount.txt</a></p>
+<p>部分数据如下</p>
+<pre><code>蓝 蓝 绿 红 蓝 蓝 黄 
+绿 红 蓝 红 红 黄 黄 蓝 蓝 红 蓝 
+红 绿 
+绿 蓝 黄 红 蓝 黄 
+红 蓝 绿 
+红 蓝 黄 黄 黄 蓝 红 
+蓝 黄 黄 黄 黄 红 
+黄 绿 绿 
+蓝 蓝 红 蓝 绿 黄 红 黄 
+绿 红 绿 
+黄 绿 红 
+绿 红 黄 黄 红 
+绿 蓝 蓝 
+</code></pre><p>下面开始开始实现逻辑</p>
+<h2 id="1）Mapper阶段逻辑"><a href="#1）Mapper阶段逻辑" class="headerlink" title="1）Mapper阶段逻辑"></a>1）Mapper阶段逻辑</h2><p><strong>默认配置好了hadoop的jar包，能上外网的可以添加依赖，我是内网所以配置的Libraries。</strong><a href="https://www.lanzous.com/i8y9l3a" target="_blank" rel="noopener">jar包自取</a> </p>
+<p>自定义ApperMapper类继承Mapper类并复写map方法</p>
+<pre><code class="java">package AppleCount;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+import java.io.IOException;
+
+public class AppleMapper extends Mapper&lt;LongWritable, Text, Text, IntWritable&gt;{
+    @Override
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        super.map(key, value, context);
+    }
+}
+
+</code></pre>
+<p>[包不要导错了，看清楚是<strong>mapreduce</strong>的]</p>
+<pre><code>Mapper&lt;LongWritable, Text, Text, IntWritable&gt;
+</code></pre><p>Mapper有四个参数分别是传入数据Key、传入数据Value、传出数据Key、传出数据Value，传入数据Key又称偏移值，仅记录每行数据的位置并无其他意思，传入数据Value根据上面所说即为一行数据，后三个数据类型需根据业务逻辑自行改变，<strong>注意：Java中的数据类型并不适用Hadoop，但其对应关系如下：</strong></p>
+<pre><code>Java类型    Hadoop Writable类型
+boolean        BooleanWritable
+byte        ByteWritable
+int            IntWritable
+float        FloatWritable
+long        LongWritable
+double        DoubleWritable
+string        Text
+map            MapWritable
+array        ArrayWritable
+</code></pre><p>下面我们分析逻辑，首先Map端传入一行数据</p>
+<pre><code>绿 红 蓝 红 红 黄 黄 蓝 蓝 红 蓝 
+</code></pre><p>这是分给我的苹果，我需要做的仅仅是统计这一行不同颜色苹果的个数即可，传入的是Text类型，我们需要将其转换为string类型，注意到每个苹果是用空格割开，因此我们可以按空格对字符串进行切割得到没一个苹果</p>
+<pre><code>String[] line = value.toString().split(&quot; &quot;);
+</code></pre><p>如何统计个数？？？</p>
+<p>遍历，我们可以遍历line里面的每一个苹果，把它的颜色作为Key，Value记为1表示一个苹果的意思，把这组KV对通过context传给Reduce端</p>
+<pre><code class="java"> for (String Line : line){
+     context.write(new Text(Line), new IntWritable(1));
+ }
+</code></pre>
+<p>我们可以写出Map端传出的KV对</p>
+<pre><code>&lt; 绿 , 1 &gt;
+&lt; 红 , 1 &gt;
+&lt; 蓝 , 1 &gt;
+&lt; 红 , 1 &gt;
+&lt; 红 , 1 &gt;
+&lt; 黄 , 1 &gt;
+&lt; 黄 , 1 &gt;
+&lt; 蓝 , 1 &gt;
+&lt; 蓝 , 1 &gt;
+&lt; 红 , 1 &gt;
+&lt; 蓝 , 1 &gt;
+</code></pre><h2 id="2）Reducer阶段逻辑"><a href="#2）Reducer阶段逻辑" class="headerlink" title="2）Reducer阶段逻辑"></a>2）Reducer阶段逻辑</h2><p>其实在传入Reduce端之前会对其相同的Key进行一次整合，例如上面的会被整合为</p>
+<pre><code>&lt; 红 , [1,1,1,1] &gt;
+&lt; 黄 , [1,1] &gt;
+&lt; 蓝 , [1,1,1,1] &gt;
+&lt; 绿 , [1] &gt;
+</code></pre><p>传入Reduce端是上面的KV对形势，那么Reduce类同理，自定义AppleReducer类并继承Reducer，复写reduce方法，同样Reducer也有四个参数，前面为接收Map端数据，那么应该保持一致，后面的两个参数为输出KV对数据类型，根据业务逻辑自定义。</p>
+<pre><code class="java">package AppleCount;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+import java.io.IOException;
+
+public class AppleReducer extends Reducer&lt;Text, IntWritable, Text, IntWritable&gt; {
+    @Override
+    protected void reduce(Text key, Iterable&lt;IntWritable&gt; values, Context context) throws IOException, InterruptedException {
+        super.reduce(key, values, context);
+    }
+}
+</code></pre>
+<p>下面分析reduce逻辑，在这里面其实已经达到业务要求，只需要统计Value有多少个1即可，因此可以遍历Value实现累加，注意这里的1的数据类型是IntWritable，因此我们可以申明一个count来计数直接输出即可。</p>
+<pre><code class="java">int count = 0;
+for (IntWritable Values : values){
+    count += 1;
+}
+context.write(key, new IntWritable(count));
+</code></pre>
+<h2 id="3-Driver阶段逻辑"><a href="#3-Driver阶段逻辑" class="headerlink" title="3)Driver阶段逻辑"></a>3)Driver阶段逻辑</h2><p>至于Driver端可以说是一个模板，需要修改的地方注释以标出，完整代码如下：</p>
+<pre><code class="java">package AppleCount;
+
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+import java.io.IOException;
+
+public class AppleDriver {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+        Job job = Job.getInstance();
+        job.setJarByClass(AppleDriver.class);//指出程序入口
+
+        job.setMapperClass(AppleMapper.class);//指出Mapper类
+        job.setMapOutputKeyClass(Text.class);//指出map输出key类型
+        job.setMapOutputValueClass(IntWritable.class);//指出map输出value类型
+
+        job.setReducerClass(AppleReducer.class);//指出Reducer类
+        job.setOutputKeyClass(Text.class);//指出reduce输出key类型
+        job.setOutputValueClass(IntWritable.class);//指出reduce输出value类型
+
+        FileInputFormat.addInputPath(job,new Path(&quot;/Data/AppleCount.txt&quot;));//数据存放路径
+        FileOutputFormat.setOutputPath(job,new Path(&quot;/Data/AppleCount&quot;));//结果存放路径
+
+        job.waitForCompletion(true);    //启动程序
+    }
+}
+</code></pre>
+<p><strong>注意：数据存放的路径及结果存放的路径是HDFS里的路径，不是本地，不是本地，不是本地</strong></p>
+<p>完整Mapper代码如下：</p>
+<pre><code class="java">package AppleCount;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+import java.io.IOException;
+
+public class AppleMapper extends Mapper&lt;LongWritable, Text, Text, IntWritable&gt;{
+    @Override
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        String[] line = value.toString().split(&quot; &quot;);
+        for (String Line : line){
+            context.write(new Text(Line), new IntWritable(1));
+        }
+    }
+}
+</code></pre>
+<p>完整Reducer代码如下：</p>
+<pre><code class="java">package AppleCount;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+import java.io.IOException;
+
+public class AppleReducer extends Reducer&lt;Text, IntWritable, Text, IntWritable&gt; {
+    @Override
+    protected void reduce(Text key, Iterable&lt;IntWritable&gt; values, Context context) throws IOException, InterruptedException {
+        int count = 0;
+        for (IntWritable Values : values){
+            count += 1;
+        }
+        context.write(key, new IntWritable(count));
+    }
+}
+</code></pre>
+<p>最后配置一下Artifacts，打一个jar包，并记录程序入口的本地相对路径[右击AppleDrive选择Copy Reference]</p>
+<pre><code>AppleCount.AppleDriver
+</code></pre><p>需要删除jar包里META-INF文件夹里的MSFTSIG.RSA和MSFTSIG.SF，最后我们需要将jar包导入Linux系统中，将数据AppleCount上传到程序指定的HDFS路径，注意结果存放路径的文件夹在HDFS一定要<strong>不存在，不存在，不存在</strong>，程序会自己创建，然后就是上一篇博文的知识了，启动HDFS—上传文件，最后运行jar包，代码如下：</p>
+<pre><code>hadoop jar /MapReduce/Blog.jar AppleCount.AppleDriver
+</code></pre><p>/MapReduce/Blog.jar是你jar包在Linux下的位置，当看到绿绿的successfully表示程序运行成功。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/jieguo.png" alt></p>
+<p>来到我们程序设定的结果存放路径我们可以看两个文件_SUCCESS日志文件，说明成功了，part文件存放我们的结果</p>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/jieguo1.png" alt></p>
+<p>可以用cat命令查看</p>
+<pre><code>hdfs dfs -cat /Data/AppleCount/p*
+</code></pre><p>其最中结果如下[因为数据未清洗，可能会统计一些空格数量]</p>
+<pre><code>红      222
+绿      194
+蓝      190
+黄      205
+</code></pre><p>当然，说了这么多其实完全可以用word直接查找^_^,开个玩笑，例子很简单，主要了解原理懂得运用……[上述源码、数据、jar包这里自取(<a href="https://www.lanzous.com/i8ygv5e）" target="_blank" rel="noopener">https://www.lanzous.com/i8ygv5e）</a></p>
+<ul>
+<li>初学Hadoop博客仅为存放一些笔记，若能帮到你一丝万分荣幸，如有错误欢迎评论留言</li>
+</ul>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/donate/Pay.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/donate/WeChat.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/02/01/资源分享/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/Blogcover/2.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/Blogcover/2.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                资源分享</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/01/30/分布式文件系统—HDFS/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                分布式文件系统-HDFS</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
 <div id="vcomments"></div>
 <script>
@@ -448,43 +733,25 @@
   }
 </script>
 
-      <div class="single-reward">
-        <div class="reward-open">赏
-          <div class="reward-main">
-            <ul class="reward-row">
-              <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/donate/Pay.jpg"></li>
-              <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/donate/WeChat.png"></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-      <footer class="post-footer">
-        <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-        <div class="post-tags">
-        </div>
-        <div class="post-share">
-          <div class="social-share sharehidden share-component"></div>
-          <i class="iconfont show-share icon-forward"></i>
-        </div>
-      </footer><!-- .entry-footer -->
-    </article>
-      <!-- #post-## -->
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/img/avatar.jpg" itemprop="image" alt="wjun" height="70" width="70"></a>
+          <a href="paperwj.top" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@1.2/img/avatar.jpg" itemprop="image" alt="Paperwjun" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="https://paperwj.top" itemprop="url" rel="author">wjun</a>
+            <a href="paperwj.top" itemprop="url" rel="author">Paperwjun</a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i>当局者最迷，旁观者最嗨</p>
+        <p><i class="iconfont icon-write"></i>只喜欢学习</p>
       </section>
+    </main><!-- #main -->
   </div><!-- #primary -->
 </div>
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
