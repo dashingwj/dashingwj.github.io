@@ -359,7 +359,7 @@
                 <a href="/client/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-android faa-vertical" aria-hidden="true"></i>
-                    软件分享
+                    神秘空间
                   </span>
                 </a>
                 
@@ -376,60 +376,34 @@
   
   <div id="content" class="site-content">
     <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
- 
-<html xmlns="http://www.w3.org/1999/xhtml">
- 
+      <!DOCTYPE html>
+<html lang="en">
 <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <title>登录页面</title>
  
-<meta charset="UTF-8" http-equiv="Content-Type" content="text/html; charset=utf-8">
- 
-<title>404-对不起！您访问的页面不存在</title>
- 
-<style type="text/css">
- 
-.head404{ width:580px; height:234px; margin:50px auto 0 auto; background:url(https://www.daixiaorui.com/Public/images/head404.png) no-repeat; }
- 
-.txtbg404{ width:499px; height:169px; margin:10px auto 0 auto; background:url(https://www.daixiaorui.com/Public/images/txtbg404.png) no-repeat;}
- 
-.txtbg404 .txtbox{ width:390px; position:relative; top:30px; left:60px;color:#eee; font-size:13px;}
- 
-.txtbg404 .txtbox p {margin:5px 0; line-height:18px;}
- 
-.txtbg404 .txtbox .paddingbox { padding-top:15px;}
- 
-.txtbg404 .txtbox p a { color:#eee; text-decoration:none;}
- 
-.txtbg404 .txtbox p a:hover { color:#FC9D1D; text-decoration:underline;}
- 
-</style>
- 
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <script type="text/javascript" src="login.js"></script>
 </head>
  
+<body>
+<div id="login_frame">
  
+    <p id="image_logo"><img src="images/login/fly.png"></p>
  
-<body bgcolor="#494949">
+    <form method="post" action="login.js">
  
-   	<div class="head404"></div>
+        <p><label class="label_input">用户名</label><input type="text" id="username" class="text_field"></p>
+        <p><label class="label_input">密码</label><input type="text" id="password" class="text_field"></p>
  
-   	<div class="txtbg404">
- 
-  <div class="txtbox">
- 
-      <p>对不起，您请求的页面不存在、或已被删除、或暂时不可用</p>
- 
-      <p class="paddingbox">请点击以下链接继续浏览网页</p>
- 
-      <p>》<a style="cursor:pointer" οnclick="history.back()">返回上一页面</a></p>
- 
-      <p>》<a href="https://www.daixiaorui.com" target="_blank" rel="noopener">返回网站首页</a></p>
- 
-    </div>
- 
-  </div>
+        <div id="login_control">
+            <input type="button" id="btn_login" value="登录" οnclick="login();">
+            <a id="forget_pwd" href="forget_pwd.html">忘记密码？</a>
+        </div>
+    </form>
+</div>
  
 </body>
- 
 </html>
 
       <!-- .entry-content -->
@@ -543,6 +517,23 @@
 <span style="color: #b9b9b9" id="busuanzi_container_site_uv">
   <br/><center> 本站访客数<span id="busuanzi_value_site_uv"></span>人次</center>
 </span>
+
+<!-- 添加页脚支持 -->
+<p>
+<center>
+
+<a href="https://www.aliyun.com/" target="_blank" alt="ALiYun" rel="nofollow">
+<img src="https://www.zouwang.vip/wp-content/themes/Sakura/images/link/aliyun.png" alt="aliyun" style="height: 1.7em; max-height: 1.8em;padding-bottom: 0px;">
+</a>&nbsp;&nbsp;&nbsp;
+<a href="https://cloud.tencent.com/" target="_blank" alt="tencent" rel="nofollow">
+<img src="https://www.zouwang.vip/wp-content/themes/Sakura/images/link/tencet.jpg" alt="tencet" style="height: 1.7em; max-height: 1.8em;padding-bottom: 0px;">
+</a>&nbsp;&nbsp;&nbsp;
+<a href="https://search.google.com/search-console/about" target="_blank" alt="Google" rel="nofollow">
+<img src="https://www.zouwang.vip/wp-content/themes/Sakura/images/link/Google.svg" alt="Google" style="height: 1.7em; max-height: 1.8em;padding-bottom: 0px;">
+</a>&nbsp;&nbsp;&nbsp;
+</center>
+</p>
+
 
 
 
@@ -816,7 +807,7 @@ $(document).ready(function() {
         <a href="/client/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-android faa-vertical" aria-hidden="true"></i>
-            软件分享
+            神秘空间
           </span>
         </a>
         
