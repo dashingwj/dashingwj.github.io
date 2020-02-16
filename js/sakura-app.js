@@ -499,11 +499,17 @@ $(document).ready(function () {
       setCookie('bgImgSetting', url, 30)
     })
   }
-  changeBG('#sakura-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/sakura.png')
-  changeBG('#gribs-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/plaid.jpg')
-  changeBG('#pixiv-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/star.png')
-  changeBG('#KAdots-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/point.png')
-  changeBG('#totem-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/little-monster.png')
+  // https://cdn.jsdelivr.net/gh/dashingwj/CDN/chageBG/1.jpg
+  // https://cdn.jsdelivr.net/gh/dashingwj/CDN/chageBG/2.png
+  // https://cdn.jsdelivr.net/gh/dashingwj/CDN/chageBG/3.png
+  // https://cdn.jsdelivr.net/gh/dashingwj/CDN/chageBG/4.png
+  // https://cdn.jsdelivr.net/gh/dashingwj/CDN/chageBG/5.png
+  // https://cdn.jsdelivr.net/gh/dashingwj/CDN/chageBG/6.png
+  changeBG('#sakura-bg', 'https://cdn.jsdelivr.net/gh/dashingwj/CDN/chageBG/1.jpg')
+  changeBG('#gribs-bg', 'https://cdn.jsdelivr.net/gh/dashingwj/CDN/chageBG/2.png')
+  changeBG('#pixiv-bg', 'https://cdn.jsdelivr.net/gh/dashingwj/CDN/chageBG/3.png')
+  changeBG('#KAdots-bg', 'https://cdn.jsdelivr.net/gh/dashingwj/CDN/chageBG/4.png')
+  changeBG('#totem-bg', 'https://cdn.jsdelivr.net/gh/dashingwj/CDN/chageBG/5.png')
   changeBGnoTrans('#bing-bg', 'https://api.shino.cc/bing/')
   $('.skin-menu #white-bg').click(function () {
     mashiro_global.variables.skinSecter = false
@@ -521,7 +527,7 @@ $(document).ready(function () {
   $('.skin-menu #dark-bg').click(function () {
     mashiro_global.variables.skinSecter = true
     mashiro_global.variables.isNight = true
-    $('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/starry_sky.png)')
+    $('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/dashingwj/CDN/chageBG/6.png)')
     $('.blank').css('background-color', 'rgba(255,255,255,.8)')
     $('#night-mode-cover').css('visibility', 'visible')
     $('.pattern-center').removeClass('pattern-center').addClass('pattern-center-sakura')
