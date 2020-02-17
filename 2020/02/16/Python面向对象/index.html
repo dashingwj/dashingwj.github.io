@@ -640,7 +640,7 @@ class MyTimer:
         print(&quot;开始计时...&quot;)
 
     #结束计时
-    def stop(self):     #为什么要用私有呢？反正都是伪私有，想不通...
+    def stop(self):     
         if not self.begin:  #非0即真
             print(&quot;请先调用start()开始计时&quot;)
         else:
