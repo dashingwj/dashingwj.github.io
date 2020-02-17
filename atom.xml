@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="/"/>
+  <link href="https://paperwj.top/"/>
   <updated>2020-02-17T06:08:47.258Z</updated>
-  <id>/</id>
+  <id>https://paperwj.top/</id>
   
   <author>
     <name>Paperwjun</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Python面向对象编程</title>
-    <link href="/2020/02/16/Python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    <id>/2020/02/16/Python面向对象/</id>
+    <link href="https://paperwj.top/2020/02/16/Python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    <id>https://paperwj.top/2020/02/16/Python面向对象/</id>
     <published>2020-02-16T15:45:01.000Z</published>
     <updated>2020-02-17T06:08:47.258Z</updated>
     
@@ -29,19 +29,19 @@
     
     </summary>
     
-      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://paperwj.top/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="web" scheme="/tags/web/"/>
+      <category term="web" scheme="https://paperwj.top/tags/web/"/>
     
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+      <category term="悦读" scheme="https://paperwj.top/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>KNN算法</title>
-    <link href="/2020/02/12/KNN%E7%AE%97%E6%B3%95/"/>
-    <id>/2020/02/12/KNN算法/</id>
+    <link href="https://paperwj.top/2020/02/12/KNN%E7%AE%97%E6%B3%95/"/>
+    <id>https://paperwj.top/2020/02/12/KNN算法/</id>
     <published>2020-02-12T03:45:01.000Z</published>
     <updated>2020-02-12T12:30:47.603Z</updated>
     
@@ -51,19 +51,19 @@
     
     </summary>
     
-      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://paperwj.top/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="web" scheme="/tags/web/"/>
+      <category term="web" scheme="https://paperwj.top/tags/web/"/>
     
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+      <category term="悦读" scheme="https://paperwj.top/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>元胞自动机</title>
-    <link href="/2020/02/03/%E5%85%83%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
-    <id>/2020/02/03/元胞自动机/</id>
+    <link href="https://paperwj.top/2020/02/03/%E5%85%83%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
+    <id>https://paperwj.top/2020/02/03/元胞自动机/</id>
     <published>2020-02-03T04:00:00.000Z</published>
     <updated>2020-02-12T13:04:19.653Z</updated>
     
@@ -73,19 +73,19 @@
     
     </summary>
     
-      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://paperwj.top/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="web" scheme="/tags/web/"/>
+      <category term="web" scheme="https://paperwj.top/tags/web/"/>
     
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+      <category term="悦读" scheme="https://paperwj.top/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>资源分享</title>
-    <link href="/2020/02/01/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
-    <id>/2020/02/01/资源分享/</id>
+    <link href="https://paperwj.top/2020/02/01/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
+    <id>https://paperwj.top/2020/02/01/资源分享/</id>
     <published>2020-02-01T03:45:01.000Z</published>
     <updated>2020-02-12T13:03:47.808Z</updated>
     
@@ -95,15 +95,15 @@
     
     </summary>
     
-      <category term="资源" scheme="/categories/%E8%B5%84%E6%BA%90/"/>
+      <category term="资源" scheme="https://paperwj.top/categories/%E8%B5%84%E6%BA%90/"/>
     
     
   </entry>
   
   <entry>
     <title>分布式并行编程框架-MapReduce</title>
-    <link href="/2020/01/31/%E5%88%86%E5%B8%83%E5%BC%8F%E5%B9%B6%E8%A1%8C%E7%BC%96%E7%A8%8B%E6%A1%86%E6%9E%B6%E2%80%94MapReduce/"/>
-    <id>/2020/01/31/分布式并行编程框架—MapReduce/</id>
+    <link href="https://paperwj.top/2020/01/31/%E5%88%86%E5%B8%83%E5%BC%8F%E5%B9%B6%E8%A1%8C%E7%BC%96%E7%A8%8B%E6%A1%86%E6%9E%B6%E2%80%94MapReduce/"/>
+    <id>https://paperwj.top/2020/01/31/分布式并行编程框架—MapReduce/</id>
     <published>2020-01-31T14:00:00.000Z</published>
     <updated>2020-02-01T04:29:07.669Z</updated>
     
@@ -113,19 +113,19 @@
     
     </summary>
     
-      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://paperwj.top/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="web" scheme="/tags/web/"/>
+      <category term="web" scheme="https://paperwj.top/tags/web/"/>
     
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+      <category term="悦读" scheme="https://paperwj.top/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>分布式文件系统-HDFS</title>
-    <link href="/2020/01/30/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E2%80%94HDFS/"/>
-    <id>/2020/01/30/分布式文件系统—HDFS/</id>
+    <link href="https://paperwj.top/2020/01/30/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E2%80%94HDFS/"/>
+    <id>https://paperwj.top/2020/01/30/分布式文件系统—HDFS/</id>
     <published>2020-01-30T04:00:00.000Z</published>
     <updated>2020-01-31T14:39:07.288Z</updated>
     
@@ -135,19 +135,19 @@
     
     </summary>
     
-      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://paperwj.top/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="web" scheme="/tags/web/"/>
+      <category term="web" scheme="https://paperwj.top/tags/web/"/>
     
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+      <category term="悦读" scheme="https://paperwj.top/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>My Thesis</title>
-    <link href="/2020/01/28/My-Thesis/"/>
-    <id>/2020/01/28/My-Thesis/</id>
+    <link href="https://paperwj.top/2020/01/28/My-Thesis/"/>
+    <id>https://paperwj.top/2020/01/28/My-Thesis/</id>
     <published>2020-01-28T07:06:00.000Z</published>
     <updated>2020-01-29T01:47:49.810Z</updated>
     
@@ -157,19 +157,19 @@
     
     </summary>
     
-      <category term="随想" scheme="/categories/%E9%9A%8F%E6%83%B3/"/>
+      <category term="随想" scheme="https://paperwj.top/categories/%E9%9A%8F%E6%83%B3/"/>
     
     
-      <category term="web" scheme="/tags/web/"/>
+      <category term="web" scheme="https://paperwj.top/tags/web/"/>
     
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+      <category term="悦读" scheme="https://paperwj.top/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>转载-20200201</title>
-    <link href="/2020/01/28/%E8%BD%AC%E8%BD%BD-20200201/"/>
-    <id>/2020/01/28/转载-20200201/</id>
+    <link href="https://paperwj.top/2020/01/28/%E8%BD%AC%E8%BD%BD-20200201/"/>
+    <id>https://paperwj.top/2020/01/28/转载-20200201/</id>
     <published>2020-01-28T00:00:00.000Z</published>
     <updated>2020-02-03T08:05:21.649Z</updated>
     
@@ -179,19 +179,19 @@
     
     </summary>
     
-      <category term="转载" scheme="/categories/%E8%BD%AC%E8%BD%BD/"/>
+      <category term="转载" scheme="https://paperwj.top/categories/%E8%BD%AC%E8%BD%BD/"/>
     
     
-      <category term="web" scheme="/tags/web/"/>
+      <category term="web" scheme="https://paperwj.top/tags/web/"/>
     
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+      <category term="悦读" scheme="https://paperwj.top/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>Hexo-Theme-Sakura</title>
-    <link href="/2020/01/01/Hexo-Theme-Sakura/"/>
-    <id>/2020/01/01/Hexo-Theme-Sakura/</id>
+    <link href="https://paperwj.top/2020/01/01/Hexo-Theme-Sakura/"/>
+    <id>https://paperwj.top/2020/01/01/Hexo-Theme-Sakura/</id>
     <published>2020-01-01T14:16:01.000Z</published>
     <updated>2020-01-30T12:33:06.300Z</updated>
     
@@ -201,12 +201,12 @@
     
     </summary>
     
-      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://paperwj.top/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="web" scheme="/tags/web/"/>
+      <category term="web" scheme="https://paperwj.top/tags/web/"/>
     
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+      <category term="悦读" scheme="https://paperwj.top/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   
