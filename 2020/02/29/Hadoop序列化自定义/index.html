@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">links | Paperwjun</title>
+  <title itemprop="name">Hadoop序列化自定义 | Paperwjun</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -378,109 +378,411 @@
   </div>
 </header>
 
-      <div class="pattern-center-blank">
-</div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.4/img/banner/links.jpg" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.4/img/banner/links.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/dashingwj/CDN/cover.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/cover.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      Hadoop序列化自定义</h1>
+      <p class="entry-census">
+        <span>
+          <a href="paperwj.top">
+            <img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@1.2/img/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="paperwj.top">Paperwjun</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-2-29<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="entry-title">
-    友人帐</h1>
-  </header>
-</div>
+
 <div id="content" class="site-content">
-  <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-    <p>
-    欢迎交换友链 ꉂ(ˊᗜˋ)</p>
-    <p>
-      请留言告诉我你的：<br>
-      1、名字<br>
-      2、一句话介绍（熟人我会亲自帮写的）<br>
-      3、主页地址<br>
-    4、头像（HTTPS*，可在评论区上传）</p>
-    <p>
-      For Example：<br>
-      ★ Name: wjun<br>
-      ★ Bio: 谁来救救我的论文<br>
-      ★ URL: https://paperwj.top<br>
-      ★ Avatar: <a href="https://cdn.jsdelivr.net/gh/dashingwj/CDN@1.2/img/avatar.jpg" target="_blank" rel="nofollow">
-      获取嵌入代码</a>
-    </p>
-    <p style="font-size: 13px">
-    ※ 为保证友链质量，今后新申请的友链将经过筛选，请在收到我的回复邮件后再于贵站添加本站链接。原则上过去已添加友链不会轻易删除，如遇死链、改变网站用途（友链主要针对的是同类的博客），将单独移至“阵亡将士”分类中，下次清理时未整改的将移除；如遇盗版、破解、网页植入挖矿脚本、极低质量内容、单方面移除本站链接，将直接移除，恕不另行通知。</p>
-    
-      <div class="links">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
-          <h3 class="link-title"><span class="fake-title">1. 个人项目</span></h3>
-          
-            <div class="link-description">充分说明这家伙是条咸鱼 < (￣︶￣)></div>
-          
-          <ul class="link-items fontSmooth">
-            
-              <li class="link-item">
-                <a class="link-item-inner effect-apollo" href="https://paperwj.top/" title="菜鸟一枚" target="_blank" rel="friend">
-                  <img class="lazyload" onerror="imgError(this,1)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/img/avatar.jpg" src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/img/avatar.jpg">
-                  <span class="sitename">
-                  Paperwjun</span>
-                  <div class="linkdes">
-                  菜鸟一枚</div>
-                </a>
-              </li>
-            
-              <li class="link-item">
-                <a class="link-item-inner effect-apollo" href="https://www.zh66.club/" title="web前端个人博客" target="_blank" rel="friend">
-                  <img class="lazyload" onerror="imgError(this,1)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2992594901,4119404638&fm=26&gp=0.jpg" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2992594901,4119404638&fm=26&gp=0.jpg">
-                  <span class="sitename">
-                  皮皮家园</span>
-                  <div class="linkdes">
-                  web前端个人博客</div>
-                </a>
-              </li>
-            
-              <li class="link-item">
-                <a class="link-item-inner effect-apollo" href="https://ljg-v.github.io/" title="他说还没想好" target="_blank" rel="friend">
-                  <img class="lazyload" onerror="imgError(this,1)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/ljg.jpg" src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/ljg.jpg">
-                  <span class="sitename">
-                  二十二</span>
-                  <div class="linkdes">
-                  他说还没想好</div>
-                </a>
-              </li>
-            
-          </ul>
+        <div class="entry-content">
+          <ul>
+<li>曾经的文章介绍过Hadoop中的数据类型与Java中的基本数据类型的区别与联系，在实际需求时Hadoop提供的数据类型往往是不够用的，因此文本着重解决这个问题，有关Hadoop序列化的自定义。本文需要有<a href="https://www.paperwj.top/2020/01/31/%E5%88%86%E5%B8%83%E5%BC%8F%E5%B9%B6%E8%A1%8C%E7%BC%96%E7%A8%8B%E6%A1%86%E6%9E%B6%E2%80%94MapReduce/" target="_blank" rel="noopener">一定的MapReduce基础</a></li>
+</ul>
+<h1 id="一、序列化"><a href="#一、序列化" class="headerlink" title="一、序列化"></a>一、序列化</h1><ul>
+<li><p>什么是序列化？</p>
+<ul>
+<li>将结构化对象转换成字节流以便于进行网络传输或写入持久存储的过程。 </li>
+<li>内存对象 &gt;&gt; 字节序列</li>
+</ul>
+</li>
+<li><p>什么是反序列化？</p>
+<ul>
+<li>将字节流转换为一系列结构化对象的过程。 </li>
+<li>磁盘的持久化数据 &gt;&gt; 内存对象</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、为什么要序列化"><a href="#二、为什么要序列化" class="headerlink" title="二、为什么要序列化"></a>二、为什么要序列化</h2><p>序列化可以储存“活的”对象，可以将“活的”对象发送到远程计算机</p>
+<h2 id="三、Hadoop的序列化"><a href="#三、Hadoop的序列化" class="headerlink" title="三、Hadoop的序列化"></a>三、Hadoop的序列化</h2><p>Java基本数据类型与Hadoop数据类型的对比</p>
+<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/xuliehua/java-hadoop.png" alt></p>
+<ul>
+<li>为什么Hadoop不沿用java的序列化<ul>
+<li>Java的序列化是一个重量级框架（Serializable），对象被序列化后，会附加很多额外信息，不便于在网络高效传输</li>
+</ul>
+</li>
+<li>Hadoop序列化特点<ul>
+<li>紧凑：高效使用储存空间</li>
+<li>快速：读写数据的额外开销小</li>
+<li>可拓展：随着通信协议的升级而升级</li>
+<li>互操作：支持多种语言的交互</li>
+</ul>
+</li>
+</ul>
+<h1 id="四、如何实现Hadoop序列化的自定义"><a href="#四、如何实现Hadoop序列化的自定义" class="headerlink" title="四、如何实现Hadoop序列化的自定义"></a>四、如何实现Hadoop序列化的自定义</h1><p>以下是Hadoop中的IongWritable源码</p>
+<pre><code class="java">//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
+package org.apache.hadoop.io;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+import org.apache.hadoop.classification.InterfaceAudience.Public;
+import org.apache.hadoop.classification.InterfaceStability.Stable;
+
+@Public
+@Stable
+public class LongWritable implements WritableComparable&lt;LongWritable&gt; {
+    private long value;
+
+    public LongWritable() {
+    }
+
+    public LongWritable(long value) {
+        this.set(value);
+    }
+
+    public void set(long value) {
+        this.value = value;
+    }
+
+    public long get() {
+        return this.value;
+    }
+
+    public void readFields(DataInput in) throws IOException {
+        this.value = in.readLong();
+    }
+
+    public void write(DataOutput out) throws IOException {
+        out.writeLong(this.value);
+    }
+
+    public boolean equals(Object o) {
+        if (!(o instanceof LongWritable)) {
+            return false;
+        } else {
+            LongWritable other = (LongWritable)o;
+            return this.value == other.value;
+        }
+    }
+
+    public int hashCode() {
+        return (int)this.value;
+    }
+
+    public int compareTo(LongWritable o) {
+        long thisValue = this.value;
+        long thatValue = o.value;
+        return thisValue &lt; thatValue ? -1 : (thisValue == thatValue ? 0 : 1);
+    }
+
+    public String toString() {
+        return Long.toString(this.value);
+    }
+
+    static {
+        WritableComparator.define(LongWritable.class, new LongWritable.Comparator());
+    }
+
+    public static class DecreasingComparator extends LongWritable.Comparator {
+        public DecreasingComparator() {
+        }
+
+        public int compare(WritableComparable a, WritableComparable b) {
+            return super.compare(b, a);
+        }
+
+        public int compare(byte[] b1, int s1, int l1, byte[] b2, int s2, int l2) {
+            return super.compare(b2, s2, l2, b1, s1, l1);
+        }
+    }
+
+    public static class Comparator extends WritableComparator {
+        public Comparator() {
+            super(LongWritable.class);
+        }
+
+        public int compare(byte[] b1, int s1, int l1, byte[] b2, int s2, int l2) {
+            long thisValue = readLong(b1, s1);
+            long thatValue = readLong(b2, s2);
+            return thisValue &lt; thatValue ? -1 : (thisValue == thatValue ? 0 : 1);
+        }
+    }
+}
+
+</code></pre>
+<p>接口WritableComparable源码如下</p>
+<pre><code class="java">//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
+package org.apache.hadoop.io;
+
+import org.apache.hadoop.classification.InterfaceAudience.Public;
+import org.apache.hadoop.classification.InterfaceStability.Stable;
+
+@Public
+@Stable
+public interface WritableComparable&lt;T&gt; extends Writable, Comparable&lt;T&gt; {
+}
+
+</code></pre>
+<p>根据上述源码可以看出自定义的序列化类型需要实现如下几步</p>
+<ul>
+<li>必须实现Writable接口<ul>
+<li>LongWritable因可能放在key排序，这是MapReduce框架中的Shuffle决定的，因此需要实现Comparable接口，从它的源码发现其实也继承了Writable、Comparable接口</li>
+</ul>
+</li>
+<li>反序列化时，需要反射调用空参构造函数，所以需要有空参构造</li>
+<li>重写序列化方法</li>
+<li>重写发序列化方法<ul>
+<li>注意：序列化与反序列化时顺序必须完全一致</li>
+</ul>
+</li>
+<li>把结果显示在文件中，则需要重写toString()方法，从而实现自定义的输出样式</li>
+</ul>
+<h1 id="五、实际案例"><a href="#五、实际案例" class="headerlink" title="五、实际案例"></a>五、实际案例</h1><p>这是我随便写的不同职业的最低薪资与最高薪资</p>
+<pre><code>程序员 6000 20000
+教师 3000 8000
+搬砖 10000 20000
+教师 4000 8000
+</code></pre><p>需求是实现各职业平均最低薪资、最高薪资以及职业内部的薪资差，理想的输出结果应该为</p>
+<pre><code>程序员 6000 20000 18000
+</code></pre><p>通过分析，Hadoop已有的序列化类型无法满足这个需求，因此我们需要自定义Bean对象</p>
+<h2 id="1-实现Writable接口，空参构造"><a href="#1-实现Writable接口，空参构造" class="headerlink" title="1.实现Writable接口，空参构造"></a>1.实现Writable接口，空参构造</h2><p>分析可得Bean对象至少需要最低薪资、最高薪资和薪资差这三个属性</p>
+<pre><code class="java">import org.apache.hadoop.io.Writable;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+
+public class Bean implements Writable {
+    private int maxSalary;
+    private int minSalary;
+    private int spacing;
+    //空参构造
+    Bean(){
+        super();
+    }
+    public int getMaxSalary(){
+        return maxSalary;
+    }
+
+    public int getMinSalary(){
+        return minSalary;
+    }
+
+    public void setMaxSalary(int maxSalary){
+        this.maxSalary = maxSalary;
+    }
+
+    public void setMinSalary(int minSalary){
+        this.minSalary = minSalary;
+    }
+
+    public void setSpacing(){
+        this.spacing = maxSalary - minSalary;
+    }
+
+    public void write(DataOutput dataOutput) throws IOException {
+
+    }
+
+    public void readFields(DataInput dataInput) throws IOException {
+
+    }
+}
+</code></pre>
+<h2 id="2-重写序列化方法"><a href="#2-重写序列化方法" class="headerlink" title="2.重写序列化方法"></a>2.重写序列化方法</h2><p>固定写法</p>
+<pre><code>//重写序列化方法
+    public void write(DataOutput dataOutput) throws IOException {
+        dataOutput.writeInt(maxSalary);
+        dataOutput.writeInt(minSalary);
+        dataOutput.writeInt(spacing);
+    }
+</code></pre><h2 id="3-重写反序列化方法"><a href="#3-重写反序列化方法" class="headerlink" title="3.重写反序列化方法"></a>3.重写反序列化方法</h2><p>需要注意的是反序列方法写法虽然固定，但是顺序必须与序列化方法的顺序一致【类似队列的性质，先进先出】</p>
+<pre><code>//重写反序列化方法
+    public void readFields(DataInput dataInput) throws IOException {
+        maxSalary = dataInput.readInt();
+        minSalary = dataInput.readInt();
+        spacing = dataInput.readInt();
+    }
+</code></pre><h2 id="4-重写toString-方法"><a href="#4-重写toString-方法" class="headerlink" title="4.重写toString()方法"></a>4.重写toString()方法</h2><p>根据理想的输出情况来重写toString()方法</p>
+<pre><code>//重写toString()
+    @Override
+    public String toString() {
+        return maxSalary + &quot;\t&quot; + minSalary + &quot;\t&quot; + spacing;
+    }
+</code></pre><p>这样自定义的序列就写好了，下面我们来实现上述需求，和曾经的文章几乎一样，因此下面代码不写注释，可参照文章开头的链接</p>
+<h2 id="5-Map阶段"><a href="#5-Map阶段" class="headerlink" title="5.Map阶段"></a>5.Map阶段</h2><pre><code class="java">package MapReduce;
+
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
+import java.io.IOException;
+
+public class CountMap extends Mapper&lt;LongWritable, Text, Text, Bean&gt; {
+   private Text k = new Text();
+   private Bean v = new Bean();
+    @Override
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        String line = value.toString();
+        String[] info = line.split(&quot; &quot;);
+        k.set(info[0]);
+        v.setMinSalary(Integer.parseInt(info[1]));
+        v.setMaxSalary(Integer.parseInt(info[2]));
+        context.write(k, v);
+    }
+}
+</code></pre>
+<p>这里解释一下和以前写的代码不同之处，我将new的对象放在了map()方法之外，🤔🤔🤔考虑到map()方法是一行调用一次，曾经的方法意味着每行都至少需要new两个对象，为了遵守MapReduce的哲学就把它放外面。</p>
+<h2 id="6-Reduce阶段"><a href="#6-Reduce阶段" class="headerlink" title="6.Reduce阶段"></a>6.Reduce阶段</h2><pre><code class="java">package MapReduce;
+
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+import java.io.IOException;
+
+public class CountReduce extends Reducer&lt;Text, Bean, Text, Bean&gt; {
+    private Bean v = new Bean();
+    @Override
+    protected void reduce(Text key, Iterable&lt;Bean&gt; values, Context context) throws IOException, InterruptedException {
+        int sumMaxSalary = 0;
+        int sumMinSalary = 0;
+        int length = 0;
+        for (Bean value : values){
+            length += 1;
+            sumMaxSalary += value.getMaxSalary();
+            sumMinSalary += value.getMinSalary();
+        }
+        v.setMaxSalary(sumMaxSalary/length);
+        v.setMinSalary(sumMinSalary/length);
+        v.setSpacing();
+        context.write(key, v);
+    }
+}
+</code></pre>
+<h2 id="7-Driver阶段"><a href="#7-Driver阶段" class="headerlink" title="7.Driver阶段"></a>7.Driver阶段</h2><pre><code class="java">package MapReduce;
+
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+import java.io.IOException;
+
+public class CountDriver {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+        Job job = Job.getInstance();
+
+        job.setJarByClass(CountDriver.class);
+
+        job.setMapperClass(CountMap.class);
+        job.setReducerClass(CountReduce.class);
+
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(Bean.class);
+
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(Bean.class);
+
+        FileInputFormat.setInputPaths(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
+        job.waitForCompletion(true);
+    }
+}
+</code></pre>
+<h2 id="8-最终的运行结果"><a href="#8-最终的运行结果" class="headerlink" title="8.最终的运行结果"></a>8.最终的运行结果</h2><center><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/xuliehua/result.png" alt></center>
+
+
+
+<ul>
+<li>最近在准备一家科技公司的大数据开发助理的面试，希望一切顺利😄😄😄</li>
+</ul>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/donate/Pay.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/donate/WeChat.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
         
-          <h3 class="link-title"><span class="fake-title">2. 小伙伴们</span></h3>
-          
-            <div class="link-description">欢迎交换友链 ꉂ(ˊᗜˋ)</div>
-          
-          <ul class="link-items fontSmooth">
-            
-              <li class="link-item">
-                <a class="link-item-inner effect-apollo" href="https://www.hojun.cn" title="好少年光芒万丈" target="_blank" rel="friend">
-                  <img class="lazyload" onerror="imgError(this,1)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
-                  <span class="sitename">
-                  hojun</span>
-                  <div class="linkdes">
-                  好少年光芒万丈</div>
-                </a>
-              </li>
-            
-              <li class="link-item">
-                <a class="link-item-inner effect-apollo" href="https://sunhwee.com/" title="夜山低，晴山近，晓山高" target="_blank" rel="friend">
-                  <img class="lazyload" onerror="imgError(this,1)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" src="">
-                  <span class="sitename">
-                  洪卫の博客</span>
-                  <div class="linkdes">
-                  夜山低，晴山近，晓山高</div>
-                </a>
-              </li>
-            
-          </ul>
         
-      </div>
-    
-    
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/02/16/Python面向对象/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/PythonOOP/cover.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/PythonOOP/cover.webp">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                Python面向对象编程</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
 <div id="vcomments"></div>
 <script>
   window.onload = function(){
@@ -495,67 +797,25 @@
   }
 </script>
 
-    <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-    <footer class="post-footer">
-      <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-      <div class="post-tags">
-      </div>
-      <div class="post-share">
-        <div class="social-share sharehidden share-component"></div>
-        <i class="iconfont show-share icon-forward"></i>
-      </div>
-    </footer><!-- .entry-footer -->
-  </article>
-  <section class="author-profile">
-    <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.1/img/avatar.jpg" itemprop="image" alt="hojun" height="70" width="70"></a>
-      <div class="meta">
-        <span class="title">Author</span>
-        <h3 itemprop="name">
-        <a href="https://paperwj.top" itemprop="url" rel="author">Paperwjun</a>
-        </h3>
-      </div>
-    </div>
-    <hr>
-    <p><i class="iconfont icon-write"></i>当局者最迷，旁观者最嗨</p>
-  </section>
-<!--   <div class="have-toc">
-  </div>
-  <div class="toc-container" style="height: 4886.5px;">
-    <div class="toc">
-      <ol class="toc-list ">
-        <li class="toc-list-item">
-          <a href="#toc-head-1" class="toc-link node-name--H3  is-active-link">
-          1. 个人项目</a>
-        </li>
-        <li class="toc-list-item">
-          <a href="#toc-head-2" class="toc-link node-name--H3 ">
-          2. 私人服务</a>
-        </li>
-        <li class="toc-list-item">
-          <a href="#toc-head-3" class="toc-link node-name--H3 ">
-          3. 后宫佳丽</a>
-        </li>
-        <li class="toc-list-item">
-          <a href="#toc-head-4" class="toc-link node-name--H3 ">
-          4. 小伙伴们</a>
-        </li>
-        <li class="toc-list-item">
-          <a href="#toc-head-5" class="toc-link node-name--H3 ">
-          5. 阵亡将士</a>
-        </li>
-        <li class="toc-list-item">
-          <a href="#toc-head-6" class="toc-link node-name--H3 ">
-          6. 大佬博客</a>
-        </li>
-        <li class="toc-list-item">
-          <a href="#toc-head-7" class="toc-link node-name--H3 ">
-          7. 特别链接</a>
-        </li>
-      </ol>
-    </div>
-  </div> -->
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="paperwj.top" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@1.2/img/avatar.jpg" itemprop="image" alt="Paperwjun" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="paperwj.top" itemprop="url" rel="author">Paperwjun</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>只喜欢学习</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
