@@ -384,7 +384,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/dashingwj/CDN/javacover.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/javacover.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.2/javacover.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/dashingwj/CDN@2.2/javacover.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -589,19 +589,20 @@
 </li>
 </ul>
 <h2 id="9-对象的生命周期"><a href="#9-对象的生命周期" class="headerlink" title="9.对象的生命周期"></a>9.对象的生命周期</h2><p>  对象的创建 –&gt; 对象的使用 –&gt; 对象的清除</p>
-<p>  （1）对象的创建</p>
+<p>（1）对象的创建</p>
 <ul>
 <li>new关键字创建对象</li>
-<li><p>一些特殊的类可以通过多态创建[抽象类、接口]</p>
-<p>（2）对象的使用【不考虑权限问题】</p>
-</li>
-<li><p>对象.属性名</p>
-</li>
-<li><p>对象.方法名</p>
-<p>（3）对象的清除</p>
-</li>
+<li>一些特殊的类可以通过多态创建[抽象类、接口]</li>
 </ul>
-<p>由gc垃圾回收自动清除，一般不需要干预finalize()</p>
+<p>（2）对象的使用【不考虑权限问题】</p>
+<ul>
+<li>对象.属性名</li>
+<li>对象.方法名</li>
+</ul>
+<p>（3）对象的清除</p>
+<ul>
+<li>由gc垃圾回收自动清除，一般不需要干预finalize()</li>
+</ul>
 <h2 id="10-实例化对象"><a href="#10-实例化对象" class="headerlink" title="10.实例化对象"></a>10.实例化对象</h2><p>语法格式</p>
 <pre><code class="java">类型名 引用变量 = new 构造器(构造器的参数)
 </code></pre>
