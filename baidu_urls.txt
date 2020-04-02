@@ -1,4 +1,4 @@
-https://paperwj.top/2020/03/30/Java面向对象笔记(总)/
+https://paperwj.top/2020/03/30/Java笔记(总)/
 https://paperwj.top/2020/03/08/LeetCode题目精选/
 https://paperwj.top/2020/02/29/Hadoop序列化自定义/
 https://paperwj.top/2020/02/16/Python面向对象/

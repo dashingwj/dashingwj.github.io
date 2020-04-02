@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://paperwj.top/2020/03/30/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%AC%94%E8%AE%B0(%E6%80%BB)/</loc>
+    <loc>https://paperwj.top/2020/03/30/Java%E7%AC%94%E8%AE%B0(%E6%80%BB)/</loc>
     
-    <lastmod>2020-03-30T12:50:22.604Z</lastmod>
+    <lastmod>2020-04-02T13:01:46.385Z</lastmod>
     
   </url>
   
@@ -163,13 +163,6 @@
   </url>
   
   <url>
-    <loc>https://paperwj.top/donate/index.html</loc>
-    
-    <lastmod>2019-11-16T09:29:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://paperwj.top/rss/index.html</loc>
     
     <lastmod>2019-11-16T09:29:49.000Z</lastmod>
@@ -177,7 +170,7 @@
   </url>
   
   <url>
-    <loc>https://paperwj.top/tags/index.html</loc>
+    <loc>https://paperwj.top/donate/index.html</loc>
     
     <lastmod>2019-11-16T09:29:49.000Z</lastmod>
     
@@ -185,6 +178,13 @@
   
   <url>
     <loc>https://paperwj.top/video/index.html</loc>
+    
+    <lastmod>2019-11-16T09:29:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://paperwj.top/tags/index.html</loc>
     
     <lastmod>2019-11-16T09:29:49.000Z</lastmod>
     
